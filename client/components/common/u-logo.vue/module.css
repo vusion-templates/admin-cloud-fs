@@ -1,0 +1,9 @@
+.root {
+    display: inline-block;
+    width: 200px;
+    height: 64px;
+    margin-top: 1px;
+    height: 64px;
+    background: url('./logo.svg') no-repeat;
+    background-size: contain;
+}

@@ -1,0 +1,30 @@
+{
+    "apps": [{
+        "name": "app",
+        "script": "./cli.js",
+        "args": [
+            "app",
+            "--port",
+            "5000"
+        ],
+        "watch": ["server"],
+        "error_file": "logs/app/stderr.log",
+        "out_file": "logs/app/stdout.log",
+        "pid_file": "tmp/pids/app.pid",
+        "merge_logs": true,
+        "env": {
+            "DEBUG": "*",
+            "NODE_ENV": "development"
+        },
+        "env_debug": {
+            "DEBUG": "*",
+            "NODE_ENV": "debug"
+        },
+        "env_test": {
+            "NODE_ENV": "test"
+        },
+        "env_production": {
+            "NODE_ENV": "production"
+        }
+    }]
+}
