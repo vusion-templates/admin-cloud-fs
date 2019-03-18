@@ -1,0 +1,20 @@
+.root{
+    width: 100%;
+    min-width: $global-min-width;
+    max-width: $global-max-width;
+    margin: 0 auto;
+}
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 70px 0 48px;
+    font-size: 12px;
+    text-align: center;
+    color: #999;
+}
+
+.footer p {
+    margin-top: 10px;
+}

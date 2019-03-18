@@ -1,0 +1,16 @@
+.root {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: $header-height;
+    background: #1c2b41;
+    color: white;
+    box-shadow: 0 3px 4px rgba(0,0,0,0.1);
+    padding: 0 10px;
+    z-index: 1;
+}
+
+.left {
+    float: left;
+}
