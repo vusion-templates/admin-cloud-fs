@@ -1,6 +1,4 @@
-@import 'proto-ui.vusion/src/base/global.css';
-
-$brand-primary: #1ba67e;
+@import 'cloud-ui.vusion/theme-dark/base/global.css';
 
 /* Swatch Colors */
 $turquoise: #1abc9c;

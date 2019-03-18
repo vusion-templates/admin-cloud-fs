@@ -3,13 +3,14 @@ const webpack = require('webpack');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
 module.exports = {
-    version: '>=0.7.12',
+    version: '>=0.8.1',
     type: 'app',
     staticPath: './static/',
     srcPath: './client/',
     docs: false,
     extractCSS: false,
     sourceMap: false,
+    resolvePriority: 'current',
     entry: {
         prepend: ['babel-polyfill', 'whatwg-fetch'],
         pages: ['index', 'dashboard', 'login'],
