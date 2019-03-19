@@ -1,11 +1,12 @@
 module.exports = {
     type: 'app',
+    // host: '127.0.0.1',
+    port: 7000,
     root: __dirname,
     base: '/',
-    host: '127.0.0.1',
-    port: 7000,
+    srcPath: './server',
     entry: './server/app',
-    controller: './server/controllers/',
-    routes: './server/config/routes.js',
+    routesPath: './server/routes.js',
+    controllersPath: './server/controllers',
     middlewares: ['auth'],
 };

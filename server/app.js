@@ -4,11 +4,9 @@
 
 'use strict';
 
-const Promise = require('bluebird');
-const os = require('os');
 const path = require('path');
-const fs = Promise.promisifyAll(require('fs-extra'));
 const Koa = require('koa');
+const AkosRouter = require('akos-router');
 
 const logger = require('./utils/logger');
 const config = require('./config');
@@ -82,7 +80,8 @@ module.exports = (options) => {
     validate(app);
 
     // 路由
-    router(app, options);
+    const router = new AkosRouter(require(options.routesPath), options);
+    app.use(router.middleware());
 
     return app;
 };
