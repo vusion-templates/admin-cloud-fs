@@ -1,3 +1,3 @@
-import NavbarItem from 'cloud-ui.vusion/theme-dark/u-navbar-item.vue';
+import NavbarItem from 'cloud-ui.vusion/src/u-navbar-item.vue';
 
 export default NavbarItem;

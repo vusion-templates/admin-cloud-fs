@@ -1,5 +1,5 @@
 import Dashboard from './index.vue';
-import Overview from './overview.vue';
+import Overview from './overview/index.vue';
 import Basic from './basic.vue';
 
 import formRoutes from './form/routes';

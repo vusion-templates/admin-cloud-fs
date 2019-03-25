@@ -16,6 +16,10 @@ $z-index-plugin: 100;
 $z-index-layout: 10;
 $z-index-base: 1;
 
-$header-height: 68px;
 $global-min-width: 1200px;
 $global-max-width: 1920px;
+
+/* Transition Speed */
+$transition-duration-fast: 0.1s;
+$transition-duration-base: 0.2s;
+$transition-duration-slow: 0.4s;

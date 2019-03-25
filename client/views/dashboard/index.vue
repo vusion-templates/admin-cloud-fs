@@ -13,9 +13,10 @@
             <u-sidebar-item to="/overview">Overview</u-sidebar-item>
             <u-sidebar-item to="/basic">Basic</u-sidebar-item>
             <u-sidebar-item to="/form">Form</u-sidebar-item>
+            <u-sidebar-item to="/ingress">负载均衡</u-sidebar-item>
         </u-sidebar>
     </aside>
-    <main :class="$style.main">
+    <main :class="[$style.main, $route.path === '/overview' ? $style.overview : '']">
         <router-view></router-view>
     </main>
 </div>
@@ -33,7 +34,7 @@ export default {
     top: 0;
     right: 0;
     left: 0;
-    height: 68px;
+    height: $navbar-height;
     background: #1c2b41;
     color: white;
     box-shadow: 0 3px 4px rgba(0,0,0,0.1);
@@ -45,18 +46,19 @@ export default {
     float: left;
 }
 
-.right {
+.right[class] {
     float: right;
+    height: $navbar-height;
 }
 
 .body {
     /* min-height: calc(100vh - 134px); */
-    margin-top: 68px;
+    margin-top: $navbar-height;
 }
 
 .side {
     position: fixed;
-    top: 68px;
+    top: $navbar-height;
     left: 0;
     bottom: 0;
     width: 180px;
@@ -64,11 +66,16 @@ export default {
 
 .main {
     position: fixed;
-    top: 68px;
+    top: $navbar-height;
     left: 180px;
     bottom: 0;
     right: 0;
     padding: 40px;
+    overflow: auto;
+}
+
+.main.overview {
+    background: $background-color-base;
 }
 
 .sidebar {

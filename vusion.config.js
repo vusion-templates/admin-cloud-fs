@@ -26,6 +26,7 @@ module.exports = {
                 vue$: path.resolve(__dirname, 'node_modules/vue/dist/vue.esm.js'),
                 'vue-router$': path.resolve(__dirname, 'node_modules/vue-router/dist/vue-router.esm.js'),
                 '@': path.resolve(__dirname, 'client'),
+                services: path.resolve(__dirname, 'client/services'),
             },
         },
         plugins: [
@@ -45,5 +46,13 @@ module.exports = {
         // host: 'http://localhost',
         publicPath: '/public/',
         contentBase: path.resolve(__dirname, 'public'),
+        proxy: [{
+            context: '/api',
+            target: 'http://localhost:7000',
+        }, {
+            context: ['/dashboard', '/index', '/login'],
+            target: 'http://localhost:9000',
+            pathRewrite: (path) => '/public' + path + '.html',
+        }],
     },
 };
