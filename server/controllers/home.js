@@ -5,7 +5,7 @@
 
 'use strict';
 
-class HomeController {
+const HomeController = {
     // static *index(next) {
     //     yield this.render('index');
     //     yield next;
@@ -20,5 +20,15 @@ class HomeController {
     //     yield this.render('login');
     //     yield next;
     // }
-}
+    checkLogin(ctx) {
+        ctx.response.type = 'application/json';
+        ctx.response.body = {
+            code: 200,
+            message: '',
+            data: {
+                login: true,
+            },
+        };
+    },
+};
 module.exports = HomeController;

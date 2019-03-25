@@ -8,5 +8,35 @@ module.exports = [
             // 'put :id => #updateOne',
             // 'snapshot => getSnapshot',
         ] },
+        { path: 'login', controller: 'login', children: [
+            '=> #checkLogin',
+        ] },
+        { path: 'overview', controller: 'overview', children: [
+            {
+                path: 'getSource',
+                controller: 'overview',
+                children: ['=> #getSource'],
+            },
+            {
+                path: 'getIncome',
+                controller: 'overview',
+                children: ['=> #getIncome'],
+            },
+            {
+                path: 'getVisit',
+                controller: 'overview',
+                children: ['=> #getVisit'],
+            },
+            {
+                path: 'getFailInfo',
+                controller: 'overview',
+                children: ['=> #getFailInfo'],
+            },
+            {
+                path: 'getStatic',
+                controller: 'overview',
+                children: ['=> #getStatic'],
+            },
+        ] },
     ] },
 ];

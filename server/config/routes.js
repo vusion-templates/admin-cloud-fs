@@ -18,4 +18,5 @@ module.exports = [
     'get / => home#index',
     'get /dashboard => home#dashboard',
     'get /login => home#login',
+    'get /api => home#checkLogin',
 ];
