@@ -15,6 +15,7 @@
     "precommit": "node node_modules/vusion-hooks/precommit"
   },
   "dependencies": {
+    "@necfe/cloud-ui-internal": "~0.1.35",
     "akos-router": "^0.1.0",
     "babel-polyfill": "^6.26.0",
     "cloud-ui.vusion": "^0.3.70",
@@ -26,6 +27,7 @@
     "koa-validate": "^1.0.7",
     "moment": "^2.24.0",
     "vue": "^2.6.8",
+    "vue-i18n": "~8.1.0",
     "vue-router": "^3.0.2",
     "vusion-utils": "^0.2.3",
     "whatwg-fetch": "^3.0.0"

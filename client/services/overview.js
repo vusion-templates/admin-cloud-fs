@@ -23,7 +23,6 @@ const overviewService = {
     },
 };
 
-// /gtxs/proxy 为前端代理接口需要带的前缀
 const service = new Service(overviewService, '/api/overview');
 
 export default service;

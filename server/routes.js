@@ -38,5 +38,17 @@ module.exports = [
                 children: ['=> #getStatic'],
             },
         ] },
+        { path: 'ingress', controller: 'ingress', children: [
+            {
+                path: 'getDetail',
+                controller: 'ingress',
+                children: ['=> #getDetail'],
+            },
+            {
+                path: 'getList',
+                controller: 'ingress',
+                children: ['=> #getList'],
+            },
+        ] },
     ] },
 ];
