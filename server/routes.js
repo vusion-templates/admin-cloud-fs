@@ -49,6 +49,28 @@ module.exports = [
                 controller: 'ingress',
                 children: ['=> #getList'],
             },
+            {
+                path: 'addIngress',
+                controller: 'ingress',
+                children: ['=> #addIngress'],
+            },
+            {
+                path: 'deleteIngress',
+                controller: 'ingress',
+                children: ['=> #deleteIngress'],
+            },
+        ] },
+        { path: 'vpc', controller: 'vpc', children: [
+            {
+                path: 'getVpcs',
+                controller: 'vpc',
+                children: ['=> #getVpcs'],
+            },
+            {
+                path: 'getSubnets',
+                controller: 'vpc',
+                children: ['=> #getSubnets'],
+            },
         ] },
     ] },
 ];

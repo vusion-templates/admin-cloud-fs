@@ -10,7 +10,7 @@
                     <label>公网带宽：</label>{{ instance.Bandwidth }} Mbs
                 </li>
                 <li>
-                    <label>状态：</label>{{ instance.statusInfo.label }}
+                    <label>状态：</label>{{ instance.StatusInfo.label }}
                 </li>
                 <li>
                     <label>更新时间：</label>{{ instance.CreateAt | dateFormat('yyyy-MM-dd HH:mm:ss') }}
@@ -38,7 +38,7 @@ export default {
     data() {
         return {
             instance: {
-                statusInfo: {},
+                StatusInfo: {},
             },
         };
     },

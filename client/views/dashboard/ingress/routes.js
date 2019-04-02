@@ -3,6 +3,7 @@ import List from './list.vue';
 import Detail from './detail/index.vue';
 import Info from './detail/detail.vue';
 import Performance from './detail/performance.vue';
+import Create from './create.vue';
 export default {
     path: 'ingress',
     component: Ingress,
@@ -12,5 +13,6 @@ export default {
             { path: 'performance', component: Performance },
         ] },
         { path: '', component: List },
+        { path: 'create', component: Create },
     ],
 };

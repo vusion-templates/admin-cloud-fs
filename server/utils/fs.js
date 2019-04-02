@@ -19,4 +19,13 @@ module.exports = {
             });
         });
     },
+    writeJSONFile(filename, content) {
+        return new Promise((resolve, reject) => {
+            fs.writeFileSync(filename, JSON.stringify(content), 'utf-8', (err) => {
+                if (err)
+                    return reject(err);
+                resolve();
+            });
+        });
+    },
 };
