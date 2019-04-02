@@ -17,7 +17,9 @@
         </u-sidebar>
     </aside>
     <main :class="[$style.main, $route.path === '/overview' ? $style.overview : '']">
-        <router-view></router-view>
+        <navigation>
+            <router-view></router-view>
+        </navigation>
     </main>
 </div>
 </template>

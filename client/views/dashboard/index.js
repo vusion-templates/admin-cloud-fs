@@ -10,11 +10,16 @@ installFilters(Object.keys(Filters).reduce((filters, key) => Object.assign({}, f
 install(Components, Vue);
 
 import routes from './routes';
+import Navigation from '@vusion/vue-navigation';
+
+const router = new VueRouter({
+    routes,
+});
+
+Vue.use(Navigation, { router });
 
 new Vue({
     el: '#app',
-    router: new VueRouter({
-        routes,
-    }),
+    router,
     i18n, // 注册 i18n
 });
