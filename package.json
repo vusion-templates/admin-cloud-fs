@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@necfe/cloud-ui-internal": "~0.1.35",
-    "@vusion/vue-navigation": "^1.1.4",
+    "@vusion/vue-navigation": "^1.1.5",
     "akos-router": "^0.1.0",
     "babel-polyfill": "^6.26.0",
     "cloud-ui.vusion": "^0.3.70",
