@@ -285,7 +285,7 @@ export default {
 };
 </script>
 <style module>
-@import 'cloud-ui.vusion/theme-dark/u-line-chart.vue/module.css';
+@import 'cloud-ui.vusion/src/components/u-line-chart.vue/module.css';
 
 .piece .u-tooltip {
     border-radius: 2px;

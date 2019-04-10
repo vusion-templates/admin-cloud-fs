@@ -1,12 +1,12 @@
 <style module>
-@import 'cloud-ui.vusion/src/u-status-icon.vue/module.css';
+@import 'cloud-ui.vusion/src/components/u-status-icon.vue/module.css';
 .icon[name="move"]:before {
     icon-font: url(@/assets/icons/svg/font/list_move.svg);
     color: #fbcc3e;
 }
 .icon[name="reject"]::before{
     color: #a2b0b7;
-    icon-font: url('cloud-ui.vusion/src/u-status-icon.vue/icons/error.svg');
+    icon-font: url('cloud-ui.vusion/src/components/u-status-icon.vue/icons/error.svg');
 }
 .icon[name="unused"]::before{
     color: #a2b0b7;
@@ -41,7 +41,11 @@
 }
 </style>
 <script>
-import { StatusIcon } from 'cloud-ui.vusion';
-export default StatusIcon;
+import { UStatusIcon } from 'cloud-ui.vusion';
+
+export default {
+    name: 'u-status-icon',
+    extends: UStatusIcon,
+};
 </script>
 

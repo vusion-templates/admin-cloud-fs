@@ -41,12 +41,11 @@
 </template>
 
 <script>
-import { mapComponents } from 'vusion-utils';
-import Header from '@/components/common/u-header.vue';
-import Footer from '@/components/common/u-footer.vue';
+import UHeader from '@/components/common/u-header.vue';
+import UFooter from '@/components/common/u-footer.vue';
 export default {
     name: 'u-global-layout',
-    components: mapComponents([Header, Footer]),
+    components: { UHeader, UFooter },
     data() {
         return {
             account: {

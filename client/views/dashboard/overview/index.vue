@@ -2,7 +2,7 @@
 <div :class="$style.root">
     <div :class="$style.wrap">
         <div :class="$style.layout">
-            <u-loading v-if="isLoading" size="large" display="full" style="background: transparent"></u-loading>
+            <u-loading v-if="loading" size="large" display="full" style="background: transparent"></u-loading>
             <u-grid-layout v-else>
                 <u-grid-layout-row :repeat="3">
                     <u-grid-layout-column>
@@ -30,27 +30,25 @@
 </template>
 
 <script>
-import { mapComponents } from 'vusion-utils';
-import PieChart from './components/ov-pie-chart.vue';
-import BarChart from './components/ov-bar-chart.vue';
-import LineChart from './components/ov-line-chart.vue';
-import TableView from './components/ov-table-view.vue';
-import LinearProgress from './components/ov-linear-progress.vue';
+import OvPieChart from './components/ov-pie-chart.vue';
+import OvBarChart from './components/ov-bar-chart.vue';
+import OvLineChart from './components/ov-line-chart.vue';
+import OvTableView from './components/ov-table-view.vue';
+import OvLinearProgress from './components/ov-linear-progress.vue';
+
 export default {
     name: 'overview',
-    components: mapComponents([PieChart, BarChart, LineChart, TableView, LinearProgress]),
+    components: { OvPieChart, OvBarChart, OvLineChart, OvTableView, OvLinearProgress },
     data() {
         return {
-            isLoading: false,
+            loading: false,
         };
     },
 };
 </script>
 
 <style module>
-.root {
-
-}
+.root {}
 
 .wrap {
     position: relative;

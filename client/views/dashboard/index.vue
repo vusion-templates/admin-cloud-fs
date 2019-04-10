@@ -11,8 +11,8 @@
     <aside :class="$style.side">
         <u-sidebar :class="$style.sidebar">
             <u-sidebar-item to="/overview">Overview</u-sidebar-item>
-            <u-sidebar-item to="/basic">Basic</u-sidebar-item>
-            <u-sidebar-item to="/form">Form</u-sidebar-item>
+            <!-- <u-sidebar-item to="/basic">Basic</u-sidebar-item> -->
+            <!-- <u-sidebar-item to="/form">Form</u-sidebar-item> -->
             <u-sidebar-item to="/ingress">负载均衡</u-sidebar-item>
         </u-sidebar>
     </aside>

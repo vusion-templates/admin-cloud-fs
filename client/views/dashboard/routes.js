@@ -7,10 +7,11 @@ import ingressRoutes from './ingress/routes';
 
 export default [
     { path: '/', component: Dashboard, children: [
+        { path: '', redirect: 'overview' },
         { path: 'overview', component: Overview },
         { path: 'basic', component: Basic },
         formRoutes,
         ingressRoutes,
-    ], redirect: 'overview' },
+    ] },
     { path: '*', redirect: '/overview' },
 ];

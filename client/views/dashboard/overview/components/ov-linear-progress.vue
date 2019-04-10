@@ -1,6 +1,6 @@
 <template>
 <u-panel title="Goal Completion">
-    <u-linear-layout direction="vertical">
+    <u-linear-layout direction="vertical" gap="small">
         <u-text-progress v-for="item in data" :key="item.title" :name="item.title" :max="100" :value="item.percent" unit="%" size="huge"></u-text-progress>
     </u-linear-layout>
 </u-panel>

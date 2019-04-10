@@ -6,9 +6,9 @@
  * @param {String} key
  * @param {Mixed} val
  */
-import { Toast } from 'proto-ui.vusion';
+import { UToast } from 'proto-ui.vusion';
 import _ from 'lodash';
-setTimeout(() => Toast.toast.single = true, 0);
+setTimeout(() => UToast.toast.single = true, 0);
 
 const pushEncodedKeyValuePair = (pairs, key, val) => {
     if (val !== null && val !== undefined) {
@@ -136,7 +136,7 @@ request.fetch = (url, options = {}) => {
             } else if (/^3/.test(res.status)) {
                 //
             } else if (res.status === 401) {
-                Toast.show('您没有权限');
+                UToast.show('您没有权限');
                 return res.json();
             } else if (res.status === 406)
                 // 未登录跳转到登录页面
@@ -177,19 +177,19 @@ request.fetch = (url, options = {}) => {
             // reason 兼容自定义接口错误信息
             const message = error.message = error.message || error.Message || error.reason; // 兼容 OpenAPI 格式
             if (error.code === 401) {
-                Toast.show('您没有权限');
+                UToast.show('您没有权限');
                 return false;
             } else if (options.noAlert) {
                 throw error;
             } else if (errCodes.includes(error.code)) {
-                message && Toast.show(message);
+                message && UToast.show(message);
             } else if (error.code === 406) {
                 // 未登录跳转到登录页面
                 window.location.href = `/public/login.html#/?redirect=${encodeURIComponent(window.location.href)}`;
             } else {
                 const data = error || {};
                 if (message === ERROR_CODE.REQUEST_ERROR || /^5/.test(error.code)) {
-                    Toast.show('网络或浏览器出现问题，请稍后再试');
+                    UToast.show('网络或浏览器出现问题，请稍后再试');
                 }
                 throw error;
             }

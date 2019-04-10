@@ -35,7 +35,7 @@ export default {
 };
 </script>
 <style module>
-@import 'cloud-ui.vusion/src/u-date-picker.vue/module.css';
+@import 'cloud-ui.vusion/src/components/u-date-picker.vue/module.css';
 .input{
     height: 30px;
     line-height: 30px;

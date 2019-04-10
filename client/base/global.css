@@ -1,4 +1,7 @@
-@import 'cloud-ui.vusion/theme-dark/base/global.css';
+@import 'cloud-ui.vusion/src/base/global.css';
+
+$navbar-height: 64px;
+$sidebar-width: 180px;
 
 /* Swatch Colors */
 $turquoise: #1abc9c;

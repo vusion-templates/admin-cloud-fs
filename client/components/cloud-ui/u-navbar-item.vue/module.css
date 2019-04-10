@@ -1,6 +1,0 @@
-@import 'cloud-ui.vusion/src/u-navbar-item.vue/module.css';
-
-.root {
-    height: $navbar-height;
-    line-height: $navbar-height;
-}

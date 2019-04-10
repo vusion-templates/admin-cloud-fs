@@ -1,11 +1,11 @@
 <template>
-<u-linear-layout direction="vertical" gap="small">
+<div>
     <u-linear-layout justify="space-between">
         <u-text color="secondary">{{ name }}</u-text>
         <u-text color="secondary">{{ value }}{{ unit }}</u-text>
     </u-linear-layout>
     <u-linear-progress :size="size" :percent="max === 0 ? max : value / max * 100"></u-linear-progress>
-</u-linear-layout>
+</div>
 </template>
 
 <script>
