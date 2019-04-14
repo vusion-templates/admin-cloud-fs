@@ -1,27 +1,33 @@
 <template>
-<div :class="$style.root">
-    <header :class="$style.head">
-        <u-logo :class="$style.left"></u-logo>
-        <u-navbar :class="$style.right">
-            <u-navbar-item href="/">首页</u-navbar-item>
-            <u-navbar-item href="https://vusion.github.io" target="_blank">文档</u-navbar-item>
-            <u-navbar-item href="https://github.com/vusion" target="_blank">GitHub</u-navbar-item>
-        </u-navbar>
-    </header>
-    <aside :class="$style.side">
-        <u-sidebar :class="$style.sidebar">
-            <u-sidebar-item to="/overview">Overview</u-sidebar-item>
-            <!-- <u-sidebar-item to="/basic">Basic</u-sidebar-item> -->
-            <!-- <u-sidebar-item to="/form">Form</u-sidebar-item> -->
-            <u-sidebar-item to="/ingress">负载均衡</u-sidebar-item>
-        </u-sidebar>
-    </aside>
-    <main :class="[$style.main, $route.path === '/overview' ? $style.overview : '']">
-        <navigation>
-            <router-view></router-view>
-        </navigation>
-    </main>
-</div>
+<l-dashboard>
+    <u-navbar slot="head">
+        <u-logo slot="left"></u-logo>
+        <u-navbar-item href="/">首页</u-navbar-item>
+        <u-navbar-item href="https://vusion.github.io" target="_blank">文档</u-navbar-item>
+        <u-navbar-item href="https://github.com/vusion" target="_blank">GitHub</u-navbar-item>
+        <div slot="right">
+            <u-navbar-dropdown style="margin-right: 10px;">
+                <div slot="title">下拉菜单</div>
+                <u-navbar-menu>
+                    <u-navbar-menu-item>个人信息</u-navbar-menu-item>
+                    <u-navbar-menu-item>安全退出</u-navbar-menu-item>
+                </u-navbar-menu>
+            </u-navbar-dropdown>
+        </div>
+    </u-navbar>
+    <u-sidebar slot="side">
+        <u-sidebar-item to="/overview">总览</u-sidebar-item>
+        <u-sidebar-group title="列表页" collapsible>
+            <u-sidebar-item to="/list/basic">基础列表</u-sidebar-item>
+            <!-- <u-sidebar-item to="/dynamic"></u-sidebar-item> -->
+        </u-sidebar-group>
+        <!-- <u-sidebar-item to="/form">Form</u-sidebar-item> -->
+        <u-sidebar-item to="/ingress">模块 A</u-sidebar-item>
+    </u-sidebar>
+    <div slot="main" :overview="$route.path === '/overview'">
+        <navigation><router-view></router-view></navigation>
+    </div>
+</l-dashboard>
 </template>
 
 <script>
@@ -31,56 +37,11 @@ export default {
 </script>
 
 <style module>
-.head {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: $navbar-height;
-    background: #1c2b41;
-    color: white;
-    box-shadow: 0 3px 4px rgba(0,0,0,0.1);
-    padding: 0 10px;
-    z-index: 1;
-}
-
-.left {
-    float: left;
-}
-
-.right[class] {
-    float: right;
-    height: $navbar-height;
-}
-
-.body {
-    /* min-height: calc(100vh - 134px); */
-    margin-top: $navbar-height;
-}
-
-.side {
-    position: fixed;
-    top: $navbar-height;
-    left: 0;
-    bottom: 0;
-    width: 180px;
-}
-
-.main {
-    position: fixed;
-    top: $navbar-height;
-    left: 180px;
-    bottom: 0;
-    right: 0;
-    padding: 40px;
-    overflow: auto;
-}
-
-.main.overview {
-    background: $background-color-base;
-}
-
 .sidebar {
     height: 100%;
+}
+
+.main[overview] {
+    background: $background-color-base;
 }
 </style>

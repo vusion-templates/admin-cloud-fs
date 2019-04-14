@@ -4,10 +4,12 @@ import i18n from '@/utils/i18n';
 Vue.use(VueRouter);
 
 import * as Components from '@/components';
+import * as Layouts from '@/layouts';
 // import * as Filters from '@necfe/cloud-ui-internal/src/filters';
 import { install } from 'vusion-utils';
 // installFilters(Object.keys(Filters).reduce((filters, key) => Object.assign({}, filters, Filters[key]), {}), Vue);
 install(Vue, Components);
+install(Vue, Layouts);
 
 import routes from './routes';
 import Navigation from '@vusion/vue-navigation';

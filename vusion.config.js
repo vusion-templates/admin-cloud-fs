@@ -44,6 +44,7 @@ module.exports = {
     },
     webpackDevServer: {
         // host: 'http://localhost',
+        port: 9090,
         publicPath: '/public/',
         contentBase: path.resolve(__dirname, 'public'),
         proxy: [{
@@ -51,7 +52,7 @@ module.exports = {
             target: 'http://localhost:7000',
         }, {
             context: ['/dashboard', '/index', '/login'],
-            target: 'http://localhost:9000',
+            target: 'http://localhost:9090',
             pathRewrite: (path) => '/public' + path + '.html',
         }],
     },

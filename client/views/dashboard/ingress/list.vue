@@ -1,34 +1,32 @@
 <template>
 <u-linear-layout direction="vertical">
     <div>负载均衡</div>
+    <div>这里汇聚了你在网易云基础服务上的所有负载均衡实例。<u-link>如何创建负载均衡实例？</u-link></div>
     <u-linear-layout type="flex" justify="space-between">
         <u-linear-layout>
             <u-button color="primary" icon="create" to="/ingress/create">创建负载均衡</u-button>
-            <u-button icon="refresh" square @click="loadList"></u-button>
+            <u-button icon="refresh" square @click="$refs.tableView.reload()"></u-button>
         </u-linear-layout>
-        <u-input v-model="filter" placeholder="输入名称过滤列表"></u-input>
+        <u-input v-model="keyword" placeholder="输入名称过滤列表" style="width: 196px;"></u-input>
     </u-linear-layout>
-    <u-table-view :data="list" :loading="loading">
-        <u-table-view-column title="名称" label="Name"></u-table-view-column>
-        <u-table-view-column title="InstanceId" label="InstanceId"></u-table-view-column>
-        <u-table-view-column title="可用区" label="azList"></u-table-view-column>
-        <u-table-view-column title="运行状态">
-            <template slot-scope="props">
-                <u-status-icon v-if="props.row.statusInfo" :name="props.row.statusInfo.icon">{{ props.row.statusInfo.label }}</u-status-icon>
-            </template>
+    <u-table-view ref="tableView" :data-source="load" :filtering="{ Name: ['includes', keyword] }">
+        <u-table-view-column width="240" title="名称" field="Name"></u-table-view-column>
+        <u-table-view-column title="InstanceId" field="InstanceId"></u-table-view-column>
+        <u-table-view-column width="120" title="可用区" field="AzList">
+            <div slot="cell" slot-scope="{ item }">可用区 {{ item.AzList.toUpperCase() }}</div>
         </u-table-view-column>
-        <u-table-view-column title="创建时间">
-            <template slot-scope="props">
-                {{ props.row.CreateAt | timeFormat }}
-            </template>
+        <u-table-view-column width="120" title="运行状态">
+            <u-status-icon slot="cell" slot-scope="{ item }"
+                           v-if="item.StatusInfo" :name="item.StatusInfo.icon">{{ item.StatusInfo.label }}</u-status-icon>
         </u-table-view-column>
-        <u-table-view-column title="操作">
-            <u-link-list slot-scope="props">
-                <u-link-list-item to="/">设置</u-link-list-item>
-                <u-link-list-item :to="{ path: '/ingress/detail', query: { id: props.row.InstanceId } }">详情</u-link-list-item>
-                <u-link-list-item :to="{ path: '/ingress/detail/performance', query: { id: props.row.InstanceId } }">性能监控</u-link-list-item>
-                <u-link-list-item @click="deleteItem(props.row.InstanceId)">删除</u-link-list-item>
-            </u-link-list>
+        <u-table-view-column width="200" title="创建时间" field="CreateAt" formatter="placeholder | date"></u-table-view-column>
+        <u-table-view-column width="200" title="操作">
+            <u-actions slot="cell" slot-scope="{ item }">
+                <u-action to="/">设置</u-action>
+                <u-action :to="{ path: '/ingress/detail', query: { id: item.InstanceId } }">详情</u-action>
+                <u-action :to="{ path: '/ingress/detail/performance', query: { id: item.InstanceId } }">性能监控</u-action>
+                <u-action @click="deleteItem(item.InstanceId)">删除</u-action>
+            </u-actions>
         </u-table-view-column>
     </u-table-view>
 </u-linear-layout>
@@ -40,26 +38,12 @@ import ingressService from 'services/ingress';
 export default {
     data() {
         return {
-            data: [],
-            loading: false,
-            filter: '',
+            keyword: '',
         };
     },
-    computed: {
-        list() {
-            return this.data.filter((item) => item.Name.indexOf(this.filter) !== -1);
-        },
-    },
-    created() {
-        this.loadList();
-    },
     methods: {
-        loadList() {
-            this.loading = true;
-            return ingressService.getList().then(({ data }) => {
-                this.data = data;
-                this.loading = false;
-            });
+        load() {
+            return ingressService.getList().then(({ data }) => data);
         },
         deleteItem(id) {
             this.$confirm({
