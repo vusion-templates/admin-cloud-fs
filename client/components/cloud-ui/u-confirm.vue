@@ -66,11 +66,11 @@
 }
 </style>
 <script>
-import { Modal } from '@necfe/cloud-ui-internal/src/mixins';
+import { UModal } from 'cloud-ui.vusion';
 
 export default {
     name: 'u-confirm',
-    mixins: [Modal],
+    mixins: [UModal],
     props: {
 
     },

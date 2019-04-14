@@ -82,7 +82,7 @@ export default {
         return {
             form: {
                 chargeType: 1,
-                az: 'a',
+                az: 'b',
                 type: 'public',
                 name: '',
                 description: '',

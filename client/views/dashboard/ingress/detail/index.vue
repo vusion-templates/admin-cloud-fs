@@ -20,8 +20,10 @@
     </u-head-card>
     <div>
         <u-tabs router>
-            <u-tab exact title="详细信息" :to="{ path: '/ingress/detail', query: { id: $route.query.id } }"></u-tab>
-            <u-tab title="性能监控" :to="{ path: '/ingress/detail/performance', query: { id: $route.query.id } }"></u-tab>
+            <u-tab title="详细信息" :to="{ path: '/ingress/detail/info', query: { id: $route.query.id } }"></u-tab>
+            <u-tab title="安全组" :to="{ path: '/ingress/detail/securityGroups', query: { id: $route.query.id } }"></u-tab>
+            <u-tab title="性能监控" :to="{ path: '/ingress/detail/monitor', query: { id: $route.query.id } }"></u-tab>
+            <u-tab title="操作日志" :to="{ path: '/ingress/detail/logs', query: { id: $route.query.id } }"></u-tab>
         </u-tabs>
         <div>
             <router-view></router-view>
@@ -31,10 +33,8 @@
 </template>
 
 <script>
-import subscribe from '@necfe/cloud-ui-internal/src/utils/mixins/subscribe';
 import ingressService from 'services/ingress';
 export default {
-    mixins: [subscribe],
     data() {
         return {
             instance: {

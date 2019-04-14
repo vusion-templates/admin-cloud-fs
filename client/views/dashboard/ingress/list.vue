@@ -52,7 +52,7 @@ export default {
                 ok: () => ingressService.deleteIngress({
                     uuid: id,
                 }).then(() => {
-                    this.loadList();
+                    this.$refs.tableView.reload();
                 }),
             });
         },

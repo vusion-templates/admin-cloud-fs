@@ -18,7 +18,7 @@ const router = new VueRouter({
     routes,
 });
 
-Vue.use(Navigation, { router });
+// Vue.use(Navigation, { router });
 
 new Vue({
     el: '#app',

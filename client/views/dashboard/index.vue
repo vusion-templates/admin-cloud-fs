@@ -17,11 +17,6 @@
     </u-navbar>
     <u-sidebar slot="side">
         <u-sidebar-item to="/overview">总览</u-sidebar-item>
-        <u-sidebar-group title="列表页" collapsible>
-            <u-sidebar-item to="/list/basic">基础列表</u-sidebar-item>
-            <!-- <u-sidebar-item to="/dynamic"></u-sidebar-item> -->
-        </u-sidebar-group>
-        <!-- <u-sidebar-item to="/form">Form</u-sidebar-item> -->
         <u-sidebar-item to="/ingress">模块 A</u-sidebar-item>
     </u-sidebar>
     <div slot="main" :overview="$route.path === '/overview'">
