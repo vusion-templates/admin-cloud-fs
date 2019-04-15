@@ -9,8 +9,7 @@ npm install
 ## Development
 
 ``` shell
-npm run start
-npm run dev
+npm run server-dev
 ```
 
 ## Build

@@ -51,9 +51,14 @@ module.exports = {
             context: '/api',
             target: 'http://localhost:7000',
         }, {
-            context: ['/dashboard', '/index', '/login'],
+            context: ['/', '/dashboard', '/index', '/login'],
             target: 'http://localhost:9090',
-            pathRewrite: (path) => '/public' + path + '.html',
+            pathRewrite: (path) => {
+                if (path === '/')
+                    return '/public/index.html';
+                else
+                    return '/public' + path + '.html';
+            },
         }],
     },
 };

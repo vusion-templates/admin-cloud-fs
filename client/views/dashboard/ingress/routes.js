@@ -9,6 +9,9 @@ export default {
     path: 'ingress',
     component: Ingress,
     children: [
+        { path: '', redirect: 'list' },
+        { path: 'list', component: List },
+        { path: 'create', component: Create },
         { path: 'detail', component: Detail, children: [
             { path: '', redirect: 'info' },
             { path: 'info', component: Info },
@@ -16,7 +19,5 @@ export default {
             { path: 'monitor', component: Monitor },
             { path: 'logs', component: Monitor },
         ] },
-        { path: '', component: List },
-        { path: 'create', component: Create },
     ],
 };

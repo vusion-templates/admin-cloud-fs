@@ -8,7 +8,7 @@
 
 <script>
 import UTextProgress from './u-text-progress.vue';
-import overviewService from 'services/overview';
+import overviewService from '../service';
 export default {
     name: 'ov-linear-progress',
     components: { UTextProgress },

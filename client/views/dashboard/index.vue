@@ -7,7 +7,7 @@
         <u-navbar-item href="https://github.com/vusion" target="_blank">GitHub</u-navbar-item>
         <div slot="right">
             <u-navbar-dropdown style="margin-right: 10px;">
-                <div slot="title">下拉菜单</div>
+                <div slot="title">user</div>
                 <u-navbar-menu>
                     <u-navbar-menu-item>个人信息</u-navbar-menu-item>
                     <u-navbar-menu-item>安全退出</u-navbar-menu-item>

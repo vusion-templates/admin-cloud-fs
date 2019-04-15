@@ -1,4 +1,4 @@
-import Service from './service';
+import Service from '@/services/base';
 
 const overviewService = {
     getSource: {

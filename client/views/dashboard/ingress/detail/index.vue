@@ -33,8 +33,11 @@
 </template>
 
 <script>
-import ingressService from 'services/ingress';
+import ingressService from '../service';
+import subscribe from '@/utils/m-subscribe';
+
 export default {
+    mixins: [subscribe],
     data() {
         return {
             instance: {

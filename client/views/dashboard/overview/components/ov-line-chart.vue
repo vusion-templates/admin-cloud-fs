@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import overviewService from 'services/overview';
+import overviewService from '../service';
 export default {
     name: 'ov-line-chart',
     data() {

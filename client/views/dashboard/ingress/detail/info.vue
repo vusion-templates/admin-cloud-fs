@@ -15,7 +15,8 @@
 </template>
 
 <script>
-import subscribe from '@necfe/cloud-ui-internal/src/utils/mixins/subscribe';
+import subscribe from '@/utils/m-subscribe';
+
 export default {
     mixins: [subscribe],
     data() {

@@ -33,13 +33,17 @@
 </template>
 
 <script>
-import ingressService from 'services/ingress';
+import Vue from 'vue';
+import ingressService from './service';
 
 export default {
     data() {
         return {
             keyword: '',
         };
+    },
+    mounted() {
+        Vue.$confirm = Vue.prototype.$confirm = this.$refs.confirm.open.bind(this.$refs.confirm);
     },
     methods: {
         load() {

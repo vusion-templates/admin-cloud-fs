@@ -75,8 +75,8 @@
 </template>
 
 <script>
-import ingressService from 'services/ingress';
-import vpcService from 'services/vpc';
+import ingressService from './service';
+import vpcService from '../vpc/service';
 export default {
     data() {
         return {
