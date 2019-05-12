@@ -29,6 +29,7 @@
             </u-actions>
         </u-table-view-column>
     </u-table-view>
+    <u-confirm ref="confirm"></u-confirm>
 </u-linear-layout>
 </template>
 

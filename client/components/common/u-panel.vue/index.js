@@ -6,6 +6,6 @@ export const UPanel = {
     },
 };
 
-export * from './group.vue';
+export { UPanelGroup } from './group.vue';
 
 export default UPanel;

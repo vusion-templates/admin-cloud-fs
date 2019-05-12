@@ -1,5 +1,6 @@
 <style module>
-@import 'cloud-ui.vusion/src/components/u-status-icon.vue/module.css';
+@extend;
+
 .icon[name="move"]:before {
     icon-font: url(@/assets/icons/svg/font/list_move.svg);
     color: #fbcc3e;
@@ -41,7 +42,7 @@
 }
 </style>
 <script>
-import { UStatusIcon } from 'cloud-ui.vusion';
+import { UStatusIcon } from 'cloud-ui.vusion/dist';
 
 export default {
     name: 'u-status-icon',

@@ -9,10 +9,10 @@
 </u-popper>
 </template>
 <script>
-import { DatePicker } from 'cloud-ui.vusion';
+import { UDatePicker } from 'cloud-ui.vusion/dist';
 export default {
     name: 'u-date-picker-monitor',
-    mixins: [DatePicker],
+    mixins: [UDatePicker],
     methods: {
         showSpecific(value) {
             value = new Date(value);
@@ -35,7 +35,8 @@ export default {
 };
 </script>
 <style module>
-@import 'cloud-ui.vusion/src/components/u-date-picker.vue/module.css';
+@extend;
+
 .input{
     height: 30px;
     line-height: 30px;

@@ -42,11 +42,10 @@ export default class Service {
                 if (options.download)
                     return window.open(baseUrl + urlPath + '?' + this._serialize(query));
 
-                return request[method](baseUrl + urlPath, body || query, dataType || 'json', {
+                return request[method](baseUrl + urlPath, body || query, dataType || 'json', Object.assign({
                     headers: Object.assign({}, getHeaders(), options.headers), // 支持在 preProcesses 阶段统一操作 headers
-                    ...fetch,
                     noAlert: options.noAlert || false,
-                }).then((result) => {
+                }, fetch)).then((result) => {
                     processes.forEach((func) => result = func(result));
                     return result;
                 });

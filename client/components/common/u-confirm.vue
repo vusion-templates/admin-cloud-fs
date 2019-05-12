@@ -66,7 +66,7 @@
 }
 </style>
 <script>
-import { UModal } from 'cloud-ui.vusion';
+import { UModal } from 'cloud-ui.vusion/dist';
 
 export default {
     name: 'u-confirm',
@@ -77,16 +77,14 @@ export default {
     data() {
         return {
             type: 'warning',
-            title: '提示',
-            content: '',
             subContent: '',
             isCancelPrimary: true,
             showCancel: true, // 默认展示取消按钮
-            ok: null,
-            cancel: null,
             clickWrap: this.submit,
             submitting: false,
+            message: '',
             errMsg: '',
+            show: false,
         };
     },
     computed: {

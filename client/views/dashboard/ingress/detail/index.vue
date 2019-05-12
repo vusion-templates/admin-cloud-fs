@@ -34,10 +34,10 @@
 
 <script>
 import ingressService from '../service';
-import subscribe from '@/utils/m-subscribe';
+import { MPublisher } from 'cloud-ui.vusion/dist';
 
 export default {
-    mixins: [subscribe],
+    extends: MPublisher,
     data() {
         return {
             instance: {
@@ -55,7 +55,7 @@ export default {
             }).then((info) => this.instance = info.data);
         },
     },
-    publishs: {
+    publish: {
         loadDetail: 'instance',
     },
 };

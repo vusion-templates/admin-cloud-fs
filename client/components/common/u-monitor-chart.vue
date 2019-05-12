@@ -1,5 +1,5 @@
 <script>
-import { LineChart } from 'cloud-ui.vusion';
+import { ULineChart } from 'cloud-ui.vusion/dist';
 // import service from '@/services/monitor';
 import { date } from '@necfe/cloud-ui-internal/src/filters';
 // import UnitFormat from '@/utils/filters/unit';
@@ -7,7 +7,7 @@ import { date } from '@necfe/cloud-ui-internal/src/filters';
 
 export default {
     name: 'u-monitor-chart',
-    mixins: [LineChart],
+    mixins: [ULineChart],
     props: {
         unit: { type: String, default: '' },
         xAxis: { type: Object, default() {
@@ -285,7 +285,7 @@ export default {
 };
 </script>
 <style module>
-@import 'cloud-ui.vusion/src/components/u-line-chart.vue/module.css';
+@extend;
 
 .piece .u-tooltip {
     border-radius: 2px;

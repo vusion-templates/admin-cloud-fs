@@ -20,7 +20,7 @@
         <u-sidebar-item to="/ingress">模块 A</u-sidebar-item>
     </u-sidebar>
     <div slot="main" :overview="$route.path === '/overview'">
-        <navigation><router-view></router-view></navigation>
+        <router-view></router-view>
     </div>
 </l-dashboard>
 </template>

@@ -3,11 +3,15 @@ import VueRouter from 'vue-router';
 import i18n from '@/utils/i18n';
 Vue.use(VueRouter);
 
+import * as CloudUI from 'cloud-ui.vusion/dist';
+import 'cloud-ui.vusion/dist/theme-dark.css';
+
 import * as Components from '@/components';
 import * as Layouts from '@/layouts';
-// import * as Filters from '@necfe/cloud-ui-internal/src/filters';
+
 import { install } from 'vusion-utils';
-// installFilters(Object.keys(Filters).reduce((filters, key) => Object.assign({}, filters, Filters[key]), {}), Vue);
+
+install(Vue, CloudUI);
 install(Vue, Components);
 install(Vue, Layouts);
 

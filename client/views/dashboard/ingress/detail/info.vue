@@ -15,10 +15,10 @@
 </template>
 
 <script>
-import subscribe from '@/utils/m-subscribe';
+import { MSubscriber } from 'cloud-ui.vusion/dist';
 
 export default {
-    mixins: [subscribe],
+    extends: MSubscriber,
     data() {
         return {
             instance: {
@@ -26,7 +26,7 @@ export default {
             },
         };
     },
-    subscribes: {
+    subscribe: {
         loadDetail(instance) {
             this.instance = instance;
         },
