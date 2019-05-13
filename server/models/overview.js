@@ -41,6 +41,7 @@ const staticData = ((repeat) => {
     const data = [];
     for (let index = 0; index < repeat; index++) {
         data.push({
+            id: faker.random.uuid(),
             title: faker.random.words(randomNum(3)),
             percent: randomNum(100),
         });

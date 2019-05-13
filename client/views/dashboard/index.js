@@ -9,11 +9,15 @@ import 'cloud-ui.vusion/dist/theme-dark.css';
 import * as Components from '@/components';
 import * as Layouts from '@/layouts';
 
-import { install } from 'vusion-utils';
+import filters from '@/filters';
+
+import { install, installFilters } from 'vusion-utils';
 
 install(Vue, CloudUI);
 install(Vue, Components);
 install(Vue, Layouts);
+
+installFilters(Vue, filters);
 
 import routes from './routes';
 import Navigation from '@vusion/vue-navigation';

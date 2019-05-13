@@ -120,7 +120,7 @@ export default {
         },
         infos: {
             type: Array,
-            default: () => ({}),
+            default: () => [],
         },
         size: {
             type: String,
