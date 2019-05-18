@@ -29,6 +29,13 @@ module.exports = {
                 services: path.resolve(__dirname, 'client/services'),
             },
         },
+        module: {
+            rules: [{
+                test: /\.js$/,
+                use: ['source-map-loader'],
+                enforce: 'pre',
+            }],
+        },
         plugins: [
             // 关联生成的 dll 信息文件
             new webpack.DllReferencePlugin({

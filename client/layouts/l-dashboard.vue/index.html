@@ -6,6 +6,8 @@
         <slot name="side"></slot>
     </aside>
     <main :class="$style.main">
-        <slot name="main"></slot>
+        <div :class="$style.content">
+            <slot name="main"></slot>
+        </div>
     </main>
 </div>

@@ -6,9 +6,9 @@
  * @param {String} key
  * @param {Mixed} val
  */
-import { UToast } from 'proto-ui.vusion';
+import { UToast } from 'cloud-ui.vusion/dist';
 import _ from 'lodash';
-setTimeout(() => UToast.toast.single = true, 0);
+// setTimeout(() => UToast.toast.single = true, 0);
 
 const pushEncodedKeyValuePair = (pairs, key, val) => {
     if (val !== null && val !== undefined) {
@@ -187,7 +187,7 @@ request.fetch = (url, options = {}) => {
                 // 未登录跳转到登录页面
                 window.location.href = `/public/login.html#/?redirect=${encodeURIComponent(window.location.href)}`;
             } else {
-                const data = error || {};
+                // const data = error || {};
                 if (message === ERROR_CODE.REQUEST_ERROR || /^5/.test(error.code)) {
                     UToast.show('网络或浏览器出现问题，请稍后再试');
                 }

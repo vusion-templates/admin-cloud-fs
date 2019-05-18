@@ -13,7 +13,7 @@
         <u-table-view-column width="240" title="名称" field="Name"></u-table-view-column>
         <u-table-view-column title="InstanceId" field="InstanceId"></u-table-view-column>
         <u-table-view-column width="120" title="可用区" field="AzList">
-            <div slot="cell" slot-scope="{ item }">可用区 {{ item.AzList.toUpperCase() }}</div>
+            <div slot="cell" slot-scope="{ value }">可用区 {{ value.toUpperCase() }}</div>
         </u-table-view-column>
         <u-table-view-column width="120" title="运行状态">
             <u-status-icon slot="cell" slot-scope="{ item }"

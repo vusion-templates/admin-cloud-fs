@@ -15,9 +15,12 @@
             </u-navbar-dropdown>
         </div>
     </u-navbar>
-    <u-sidebar slot="side">
+    <u-sidebar slot="side" collapsible>
         <u-sidebar-item to="/overview">总览</u-sidebar-item>
         <u-sidebar-item to="/ingress">模块 A</u-sidebar-item>
+        <u-sidebar-group title="列表页">
+            <u-sidebar-item to="/list/basic">基础列表</u-sidebar-item>
+        </u-sidebar-group>
     </u-sidebar>
     <div slot="main" :overview="$route.path === '/overview'">
         <router-view></router-view>

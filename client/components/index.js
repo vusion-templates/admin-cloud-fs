@@ -1,4 +1,3 @@
-import ULogo from './common/u-logo.vue';
 export * from './common/u-panel.vue';
 
 import UHeadCard from './common/u-head-card.vue';
@@ -7,7 +6,6 @@ import UConfirm from './common/u-confirm.vue';
 import UFormTable from './common/u-form-table.vue';
 
 export {
-    ULogo,
     UHeadCard,
     USubmitButton,
     UConfirm,

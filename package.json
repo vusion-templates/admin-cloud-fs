@@ -45,6 +45,7 @@
     "eslint-config-vusion": "^3.0.1",
     "html-webpack-plugin": "^3.0.7",
     "husky": "^0.13.3",
+    "source-map-loader": "^0.2.4",
     "vusion-cli": "^0.8.6",
     "vusion-hooks": "^0.2.1"
   }
