@@ -1,6 +1,5 @@
 <template>
 <u-linear-layout direction="vertical">
-    <div>负载均衡</div>
     <div>这里汇聚了你在网易云基础服务上的所有负载均衡实例。<u-link>如何创建负载均衡实例？</u-link></div>
     <u-linear-layout type="flex" justify="space-between">
         <u-linear-layout>

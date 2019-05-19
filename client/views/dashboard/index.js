@@ -26,6 +26,27 @@ const router = new VueRouter({
     routes,
 });
 
+router.afterEach((to, from) => {
+    router.currentItems = [];
+    to.matched.forEach((route) => {
+        let crumb = route.meta.crumb;
+
+        if (crumb instanceof Function) {
+            crumb = crumb(to, from);
+        } else if (typeof crumb === 'string') {
+            crumb = { title: crumb };
+        } else
+            crumb = { title: route.meta.title };
+
+        crumb.to = route.path; // @TODO: About param
+
+        if (crumb.title)
+            router.currentItems.push(crumb);
+    });
+
+    router.currentTitle = router.currentItems[router.currentItems.length - 1].title;
+});
+
 // Vue.use(Navigation, { router });
 
 new Vue({

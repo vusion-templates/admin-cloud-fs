@@ -8,6 +8,7 @@ import Create from './create.vue';
 export default {
     path: 'ingress',
     component: Ingress,
+    meta: { title: '综合模块' },
     children: [
         { path: '', redirect: 'list' },
         { path: 'list', component: List },
