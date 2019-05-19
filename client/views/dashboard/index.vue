@@ -27,7 +27,7 @@
         </u-sidebar-group>
         <u-sidebar-item to="/ingress">综合模块</u-sidebar-item>
     </u-sidebar>
-    <div slot="main" :overview="$route.path === '/overview'">
+    <div slot="main" :class="$style.main" :overview="$route.path === '/overview'">
         <u-auto-crumb style="margin-bottom: 20px;"></u-auto-crumb>
         <router-view></router-view>
     </div>
@@ -43,6 +43,12 @@ export default {
 <style module>
 .sidebar {
     height: 100%;
+}
+
+.main {
+    min-width: 1110px;
+    padding: 40px;
+    overflow-x: hidden;
 }
 
 .main[overview] {

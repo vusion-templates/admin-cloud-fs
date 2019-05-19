@@ -1,3 +1,4 @@
 <u-crumb v-if="$router && $router.currentItems && $router.currentItems.length">
-    <u-crumb-item v-for="(item, index) in $router.currentItems" v-if="item.title" :to="item.to" :current="index === $router.currentItems.length - 1" :disabled="item.disabled">{{ item.title }}</u-crumb-item>
+    <u-crumb-item v-for="(item, index) in $router.currentItems" v-if="item.title" :key="item.to" :to="item.to"
+        :current="index === $router.currentItems.length - 1" :disabled="item.disabled">{{ item.title }}</u-crumb-item>
 </u-crumb>
