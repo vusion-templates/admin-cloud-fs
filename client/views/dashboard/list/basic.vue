@@ -1,6 +1,6 @@
 <template>
-<u-linear-layout direction="vertical" gap="small">
-    <u-linear-layout gap="small">
+<u-linear-layout direction="vertical">
+    <u-linear-layout>
         <u-button color="primary" icon="create">申请弹性公网 IP</u-button>
         <u-button icon="refresh" square @click="$refs.tableView.reload()"></u-button>
     </u-linear-layout>

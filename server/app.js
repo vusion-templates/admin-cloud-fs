@@ -2,7 +2,7 @@
  * 应用程序入口
  */
 
-'use strict';
+require('module-alias/register');
 
 const path = require('path');
 const Koa = require('koa');

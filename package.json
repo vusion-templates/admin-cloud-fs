@@ -15,6 +15,10 @@
     "lint": "eslint --fix ./client/**/*.{js,vue} ./server/**/*.js",
     "precommit": "node node_modules/vusion-hooks/precommit"
   },
+  "_moduleAliases": {
+    "@": "./server",
+    "~": "./"
+  },
   "dependencies": {
     "@vusion/vue-navigation": "^1.1.5",
     "akos-router": "^0.1.2",
@@ -26,11 +30,12 @@
     "koa-better-body": "^3.0.4",
     "koa-router": "^7.4.0",
     "koa-validate": "^1.0.7",
+    "module-alias": "^2.2.0",
     "moment": "^2.24.0",
     "vue": "^2.6.10",
-    "vue-template-compiler": "^2.6.10",
     "vue-i18n": "~8.1.0",
     "vue-router": "^3.0.2",
+    "vue-template-compiler": "^2.6.10",
     "vusion-utils": "^0.3.3",
     "whatwg-fetch": "^3.0.0"
   },
