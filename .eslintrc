@@ -3,5 +3,8 @@
     "env": {
         "browser": true,
         "node": true
+    },
+    "rules": {
+        "vue/no-use-v-if-with-v-for": [0]
     }
 }

@@ -11,7 +11,7 @@
     <u-table-view ref="tableView" :data-source="load" :filtering="{ Name: ['includes', keyword] }">
         <u-table-view-column width="240" title="名称" field="Name"></u-table-view-column>
         <u-table-view-column title="InstanceId" field="InstanceId"></u-table-view-column>
-        <u-table-view-column width="120" title="可用区" field="AzList">
+        <u-table-view-column width="120" title="可用区" field="AzName">
             <template #cell="{ value }">
                 <div>可用区 {{ value.toUpperCase() }}</div>
             </template>
@@ -25,9 +25,9 @@
         <u-table-view-column width="200" title="操作">
             <template #cell="{ item }">
                 <u-actions>
-                    <u-action to="/">设置</u-action>
                     <u-action :to="{ path: '/ingress/detail', query: { id: item.InstanceId } }">详情</u-action>
-                    <u-action :to="{ path: '/ingress/detail/performance', query: { id: item.InstanceId } }">性能监控</u-action>
+                    <u-action :to="{ path: '/ingress/setting', query: { id: item.InstanceId } }">设置</u-action>
+                    <u-action :to="{ path: '/ingress/detail/monitor', query: { id: item.InstanceId } }">性能监控</u-action>
                     <u-action @click="deleteItem(item.InstanceId)">删除</u-action>
                 </u-actions>
             </template>

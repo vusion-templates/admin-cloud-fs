@@ -3,18 +3,10 @@
     <u-head-card :title="instance.Name">
         <div slot="info">
             <ul>
-                <li>
-                    <label>公网 IP：</label>{{ instance.Ip }}
-                </li>
-                <li>
-                    <label>公网带宽：</label>{{ instance.Bandwidth }} Mbs
-                </li>
-                <li>
-                    <label>状态：</label>{{ instance.StatusInfo.label }}
-                </li>
-                <li>
-                    <label>更新时间：</label>{{ instance.CreateAt | dateFormat('yyyy-MM-dd HH:mm:ss') }}
-                </li>
+                <li><label>公网 IP：</label>{{ instance.Ip }}</li>
+                <li><label>公网带宽：</label>{{ instance.Bandwidth }} Mbs</li>
+                <li><label>状态：</label>{{ instance.StatusInfo.label }}</li>
+                <li><label>更新时间：</label>{{ instance.CreateAt | dateFormat('yyyy-MM-dd HH:mm:ss') }}</li>
             </ul>
         </div>
     </u-head-card>
@@ -37,7 +29,7 @@ import ingressService from '../service';
 import { MPublisher } from 'cloud-ui.vusion/dist';
 
 export default {
-    extends: MPublisher,
+    mixins: [MPublisher],
     data() {
         return {
             instance: {

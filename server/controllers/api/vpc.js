@@ -15,7 +15,7 @@ module.exports = {
         response(ctx, await vpcService.getVpcs());
     },
     async getSubnets(ctx) {
-        const id = isNaN(ctx.query.id) ? '' : +ctx.query.id;
+        const id = ctx.query.id;
         response(ctx, await vpcService.getSubnets(id));
     },
 };

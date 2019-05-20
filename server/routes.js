@@ -43,26 +43,11 @@ module.exports = [
             },
         ] },
         { path: 'ingress', controller: 'ingress', children: [
-            {
-                path: 'getDetail',
-                controller: 'ingress',
-                children: ['=> #getDetail'],
-            },
-            {
-                path: 'getList',
-                controller: 'ingress',
-                children: ['=> #getList'],
-            },
-            {
-                path: 'addIngress',
-                controller: 'ingress',
-                children: ['=> #addIngress'],
-            },
-            {
-                path: 'deleteIngress',
-                controller: 'ingress',
-                children: ['=> #deleteIngress'],
-            },
+            'get getDetail => #getDetail',
+            'get getList => #getList',
+            'post createIngress => #createIngress',
+            'put updateIngress => #updateIngress',
+            'delete deleteIngress => #deleteIngress',
         ] },
         { path: 'vpc', controller: 'vpc', children: [
             {

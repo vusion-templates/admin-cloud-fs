@@ -22,14 +22,19 @@
             <u-sidebar-item to="/list/basic">基础列表</u-sidebar-item>
             <u-sidebar-item to="/list/search">搜索列表</u-sidebar-item>
         </u-sidebar-group>
+        <u-sidebar-group title="表单页">
+            <u-sidebar-item to="/ingress/create">基础表单</u-sidebar-item>
+        </u-sidebar-group>
         <u-sidebar-group title="个人页">
             <u-sidebar-item to="/account/info">个人信息</u-sidebar-item>
         </u-sidebar-group>
         <u-sidebar-item to="/ingress">综合模块</u-sidebar-item>
     </u-sidebar>
     <div slot="main" :class="$style.main" :overview="$route.path === '/overview'">
-        <u-auto-crumb style="margin-bottom: 20px;"></u-auto-crumb>
-        <router-view></router-view>
+        <div :class="$style.content">
+            <u-auto-crumb style="margin-bottom: 20px;"></u-auto-crumb>
+            <router-view></router-view>
+        </div>
     </div>
 </l-dashboard>
 </template>
@@ -46,12 +51,16 @@ export default {
 }
 
 .main {
-    min-width: 1110px;
-    padding: 40px;
-    overflow-x: hidden;
+    height: 100%;
+    overflow: auto;
 }
 
 .main[overview] {
     background: $background-color-base;
+}
+
+.content {
+    min-width: 1110px;
+    padding: 40px;
 }
 </style>

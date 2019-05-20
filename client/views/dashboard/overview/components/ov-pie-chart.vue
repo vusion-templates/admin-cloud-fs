@@ -1,6 +1,8 @@
 <template>
 <u-panel :title="title">
-    <u-pie-chart height="360px" legend :data="data"></u-pie-chart>
+    <div style="margin: -20px;">
+        <u-pie-chart height="360px" legend :data="data"></u-pie-chart>
+    </div>
 </u-panel>
 </template>
 

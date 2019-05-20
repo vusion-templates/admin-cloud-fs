@@ -10,11 +10,15 @@ const ingressService = {
         path: '/getList',
     },
     createIngress: {
-        method: 'get',
-        path: '/addIngress',
+        method: 'post',
+        path: '/createIngress',
+    },
+    updateIngress: {
+        method: 'put',
+        path: '/updateIngress',
     },
     deleteIngress: {
-        method: 'get',
+        method: 'delete',
         path: '/deleteIngress',
     },
 };

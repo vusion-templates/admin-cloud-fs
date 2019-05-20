@@ -27,7 +27,7 @@ module.exports = {
             setTimeout(() => resolve(ingressList), randomNum(1000));
         });
     },
-    addIngress(ingress) {
+    createIngress(ingress) {
         Object.assign(ingress, {
             InstanceId: faker.random.uuid(),
             CreateAt: new Date().getTime(),
@@ -46,6 +46,32 @@ module.exports = {
                 });
             }, randomNum(1000));
         }));
+    },
+    updateIngress(ingress) {
+        return new Promise((resolve, reject) => {
+            const detail = ingressList.find((item) => item.InstanceId === ingress.InstanceId);
+            setTimeout(() => {
+                if (!detail) {
+                    reject({
+                        message: 'ingress detail not found',
+                        code: 404,
+                    });
+                }
+
+                Object.assign(detail, ingress);
+
+                writeJSONFile(filename, ingressList).then(() => new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve({
+                            message: 'success',
+                            code: 200,
+                        });
+                    }, randomNum(1000));
+                }));
+
+                resolve(detail);
+            }, randomNum(1000));
+        });
     },
     deleteIngress(uuid) {
         ingressList = ingressList.filter((ingress) => ingress.InstanceId !== uuid);

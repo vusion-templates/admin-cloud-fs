@@ -1,10 +1,12 @@
 <template>
 <u-panel :title="title">
-    <u-bar-chart height="360px" legend :stack="stack" :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data">
-        <div slot-scope="scope" slot="tooltip">
-            <div v-for="sery in series" :key="sery.key">{{ sery.name || sery.key }} : {{ scope.row[sery.key] }}</div>
-        </div>
-    </u-bar-chart>
+    <div style="margin: -20px;">
+        <u-bar-chart height="360px" legend :stack="stack" :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data">
+            <div slot-scope="scope" slot="tooltip">
+                <div v-for="sery in series" :key="sery.key">{{ sery.name || sery.key }} : {{ scope.row[sery.key] }}</div>
+            </div>
+        </u-bar-chart>
+    </div>
 </u-panel>
 </template>
 

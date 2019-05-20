@@ -17,19 +17,27 @@ module.exports = {
     async getList(ctx) {
         response(ctx, await ingressService.getList());
     },
-    async addIngress(ctx) {
-        const { Name, AzList, Network, Description, VpcId, SubnetId } = ctx.query;
+    async createIngress(ctx) {
+        const { Name, AzName, Network, Description, VpcId, SubnetId } = ctx.request.fields;
         const ingress = {
             Name,
-            AzList,
+            AzName,
             Network,
             Description,
             VpcId,
             SubnetId,
         };
-        response(ctx, await ingressService.addIngress(ingress));
+        response(ctx, await ingressService.createIngress(ingress));
+    },
+    async updateIngress(ctx) {
+        const { InstanceId, Description } = ctx.request.fields;
+        const ingress = {
+            InstanceId,
+            Description,
+        };
+        response(ctx, await ingressService.updateIngress(ingress));
     },
     async deleteIngress(ctx) {
-        response(ctx, await ingressService.deleteIngress(ctx.query.uuid));
+        response(ctx, await ingressService.deleteIngress(ctx.request.fields.uuid));
     },
 };

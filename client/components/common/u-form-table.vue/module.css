@@ -5,17 +5,18 @@
 .tableBlock[size="full"]{
     width: 100%;
 }
-.addTable{
+.table {
     table-layout: fixed;
     width: 100%;
-    margin-bottom: 20px;
 }
-.addTable thead{
+
+.table thead{
     color: #666;
     line-height: 40px;
     border-bottom: 1px solid #e1e8ed;
 }
-.addTable thead th{
+
+.table thead th{
     position: relative;
     font-weight: normal;
     text-align: left;
@@ -26,11 +27,12 @@
     box-sizing: border-box;
     padding: 0 5px
 }
-.addTable tbody td{
+
+.table tbody td{
     padding-top: 20px;
     padding-right: 10px;
 }
 
-.addTable tbody td:last-child{
+.table tbody td:last-child{
     padding-right: 0px;
 }
