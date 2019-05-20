@@ -4,8 +4,9 @@
         <u-navbar :class="$style.wrap">
             <u-logo slot="left"></u-logo>
             <u-navbar-item href="/dashboard">Dashboard</u-navbar-item>
-            <u-navbar-item href="https://vusion.github.io" target="_blank">文档</u-navbar-item>
-            <u-navbar-item href="https://github.com/vusion" target="_blank">GitHub</u-navbar-item>
+            <u-navbar-item href="https://vusion.github.io" target="_blank">Vusion</u-navbar-item>
+            <u-navbar-item href="https://github.com/vusion/cloud-ui" target="_blank">组件库</u-navbar-item>
+            <u-navbar-item href="https://github.com/vusion-templates/admin-cloud-fs" target="_blank">GitHub</u-navbar-item>
         </u-navbar>
     </header>
     <main :class="$style.body">

@@ -19,12 +19,12 @@ module.exports = {
                     });
                 }
                 resolve(detail);
-            }, randomNum(1000));
+            }, randomNum(500));
         });
     },
     getList() {
         return new Promise((resolve) => {
-            setTimeout(() => resolve(ingressList), randomNum(1000));
+            setTimeout(() => resolve(ingressList), randomNum(500));
         });
     },
     createIngress(ingress) {
@@ -44,7 +44,7 @@ module.exports = {
                     message: 'success',
                     code: 200,
                 });
-            }, randomNum(1000));
+            }, randomNum(500));
         }));
     },
     updateIngress(ingress) {
@@ -66,11 +66,11 @@ module.exports = {
                             message: 'success',
                             code: 200,
                         });
-                    }, randomNum(1000));
+                    }, randomNum(500));
                 }));
 
                 resolve(detail);
-            }, randomNum(1000));
+            }, randomNum(500));
         });
     },
     deleteIngress(uuid) {
@@ -81,7 +81,7 @@ module.exports = {
                     message: 'success',
                     code: 200,
                 });
-            }, randomNum(1000));
+            }, randomNum(500));
         }));
     },
 };
