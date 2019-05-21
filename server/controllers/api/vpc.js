@@ -18,4 +18,8 @@ module.exports = {
         const id = ctx.query.id;
         response(ctx, await vpcService.getSubnets(id));
     },
+    async getSecurityGroups(ctx) {
+        const id = ctx.query.id;
+        response(ctx, await vpcService.getSecurityGroups(id));
+    },
 };
