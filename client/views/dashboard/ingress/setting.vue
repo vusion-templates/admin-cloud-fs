@@ -89,20 +89,20 @@ export default {
             vpcService.getVpcs().then(({ data }) => {
                 this.vpcs = data;
                 return this.instance.VpcId;
-            }).then((id) => this.loadSubnets(id));
+            }).then((VpcId) => {
+                this.loadSubnets(VpcId);
+            });
         },
-        loadSubnets(id) {
-            if (!id)
+        loadSubnets(VpcId) {
+            if (!VpcId)
                 return;
-            return vpcService.getSubnets({
-                id,
-            }).then(({ data }) => {
+            return vpcService.getSubnets({ VpcId }).then(({ data }) => {
                 this.subnets = data;
             });
         },
         getDetail() {
             return ingressService.getDetail({
-                uuid: this.$route.query.id,
+                InstanceId: this.$route.query.id,
             }).then((info) => {
                 this.instance = info.data;
                 this.model.InstanceId = this.instance.InstanceId;

@@ -5,6 +5,7 @@ import Setting from './setting.vue';
 import Detail from './detail/index.vue';
 import DetailInfo from './detail/info.vue';
 import DetailMonitor from './detail/monitor.vue';
+import DetailSecurityGroups from './detail/securityGroups.vue';
 
 export default {
     path: 'ingress',
@@ -18,7 +19,7 @@ export default {
         { path: 'detail', component: Detail, meta: { title: '负载均衡详情' }, children: [
             { path: '', redirect: 'info' },
             { path: 'info', component: DetailInfo },
-            { path: 'securityGroups', component: DetailMonitor },
+            { path: 'securityGroups', component: DetailSecurityGroups },
             { path: 'monitor', component: DetailMonitor },
             { path: 'logs', component: DetailMonitor },
         ] },

@@ -16,31 +16,11 @@ module.exports = [
             '=> #checkLogin',
         ] },
         { path: 'overview', controller: 'overview', children: [
-            {
-                path: 'getSource',
-                controller: 'overview',
-                children: ['=> #getSource'],
-            },
-            {
-                path: 'getIncome',
-                controller: 'overview',
-                children: ['=> #getIncome'],
-            },
-            {
-                path: 'getVisit',
-                controller: 'overview',
-                children: ['=> #getVisit'],
-            },
-            {
-                path: 'getFailInfo',
-                controller: 'overview',
-                children: ['=> #getFailInfo'],
-            },
-            {
-                path: 'getStatic',
-                controller: 'overview',
-                children: ['=> #getStatic'],
-            },
+            'getSource => #getSource',
+            'getIncome => #getIncome',
+            'getVisit => #getVisit',
+            'getFailInfo => #getFailInfo',
+            'getStatic => #getStatic',
         ] },
         { path: 'ingress', controller: 'ingress', children: [
             'get getDetail => #getDetail',
@@ -50,16 +30,9 @@ module.exports = [
             'delete deleteIngress => #deleteIngress',
         ] },
         { path: 'vpc', controller: 'vpc', children: [
-            {
-                path: 'getVpcs',
-                controller: 'vpc',
-                children: ['=> #getVpcs'],
-            },
-            {
-                path: 'getSubnets',
-                controller: 'vpc',
-                children: ['=> #getSubnets'],
-            },
+            'getVpcs => #getVpcs',
+            'getSubnets => #getSubnets',
+            'getSecurityGroups => #getSecurityGroups',
         ] },
     ] },
 ];

@@ -59,7 +59,7 @@ export default {
                 title: '提示',
                 content: '是否删除该负载均衡？',
                 ok: () => ingressService.deleteIngress({
-                    uuid: id,
+                    InstanceId: id,
                 }).then(() => {
                     this.$refs.tableView.reload();
                 }),

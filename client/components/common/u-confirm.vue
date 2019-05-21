@@ -66,16 +66,24 @@
 }
 </style>
 <script>
-import { UModal } from 'cloud-ui.vusion/dist';
 
 export default {
     name: 'u-confirm',
-    mixins: [UModal],
     props: {
 
     },
     data() {
         return {
+            title: '弹窗',
+            content: '',
+            heading: '',
+            visible: { type: Boolean, default: false },
+            // @deprecated
+            width: { type: [String, Number], default: '' },
+            size: { type: String, default: 'normal' },
+            static: { type: Boolean, default: false },
+            icon: String,
+            maskClose: { type: Boolean, default: false },
             type: 'warning',
             subContent: '',
             isCancelPrimary: true,

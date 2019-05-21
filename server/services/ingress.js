@@ -8,9 +8,9 @@ let ingressList = require(filename);
 const { writeJSONFile } = require('../utils/fs');
 
 module.exports = {
-    getDetail(uuid) {
+    getDetail(InstanceId) {
         return new Promise((resolve, reject) => {
-            const detail = ingressList.find((item) => item.InstanceId === uuid);
+            const detail = ingressList.find((item) => item.InstanceId === InstanceId);
             setTimeout(() => {
                 if (!detail) {
                     reject({
@@ -73,8 +73,8 @@ module.exports = {
             }, randomNum(500));
         });
     },
-    deleteIngress(uuid) {
-        ingressList = ingressList.filter((ingress) => ingress.InstanceId !== uuid);
+    deleteIngress(InstanceId) {
+        ingressList = ingressList.filter((ingress) => ingress.InstanceId !== InstanceId);
         writeJSONFile(filename, ingressList).then(() => new Promise((resolve) => {
             setTimeout(() => {
                 resolve({

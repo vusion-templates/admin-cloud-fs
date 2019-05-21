@@ -25,8 +25,7 @@
                                 </u-select-item>
                             </u-select>
                         </td>
-                        <td style="display: relative;">
-                            <!-- <u-form-item name="VirtualPrivateCloud" class="no-label-form-item" ref="VirtualPrivateCloud"> -->
+                        <td>
                             <u-select size="huge medium" v-if="classic && !subnets.length" disabled key="classicSelect" placeholder="-"></u-select>
                             <u-select size="huge medium" v-else-if="!classic && !subnets.length" disabled key="emptySelect" placeholder="暂无可选择的子网"></u-select>
                             <u-select v-else size="huge medium" v-model="model.SubnetId" key="select">
@@ -34,7 +33,6 @@
                                     {{ subnet.Name }}
                                 </u-select-item>
                             </u-select>
-                            <!-- </u-form-item> -->
                         </td>
                     </tr>
                 </tbody>
@@ -111,14 +109,12 @@ export default {
             vpcService.getVpcs().then(({ data }) => {
                 this.vpcs = data;
                 return this.model.VpcId = data[0] ? data[0].Id : '';
-            }).then((id) => this.loadSubnets(id));
+            }).then((VpcId) => this.loadSubnets(VpcId));
         },
-        loadSubnets(id) {
-            if (!id)
+        loadSubnets(VpcId) {
+            if (!VpcId)
                 return;
-            return vpcService.getSubnets({
-                id,
-            }).then(({ data }) => {
+            return vpcService.getSubnets({ VpcId }).then(({ data }) => {
                 this.subnets = data;
                 return this.model.SubnetId = data[0] ? data[0].Id : '';
             });

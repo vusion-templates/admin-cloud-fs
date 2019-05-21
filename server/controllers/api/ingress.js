@@ -12,13 +12,13 @@ const response = (ctx, data) => {
 
 module.exports = {
     async getDetail(ctx) {
-        response(ctx, await ingressService.getDetail(ctx.query.uuid));
+        response(ctx, await ingressService.getDetail(ctx.query.InstanceId));
     },
     async getList(ctx) {
         response(ctx, await ingressService.getList());
     },
     async createIngress(ctx) {
-        const { Name, AzName, Network, Description, VpcId, SubnetId } = ctx.request.fields;
+        const { Name, AzName, Network, Description, VpcId, SubnetId, Standard, SecurityGroups } = ctx.request.fields;
         const ingress = {
             Name,
             AzName,
@@ -26,6 +26,8 @@ module.exports = {
             Description,
             VpcId,
             SubnetId,
+            Standard: Standard || {},
+            SecurityGroups: SecurityGroups || [],
         };
         response(ctx, await ingressService.createIngress(ingress));
     },
@@ -38,6 +40,6 @@ module.exports = {
         response(ctx, await ingressService.updateIngress(ingress));
     },
     async deleteIngress(ctx) {
-        response(ctx, await ingressService.deleteIngress(ctx.request.fields.uuid));
+        response(ctx, await ingressService.deleteIngress(ctx.request.fields.InstanceId));
     },
 };

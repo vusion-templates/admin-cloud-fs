@@ -18,7 +18,7 @@
 import { MSubscriber } from 'cloud-ui.vusion/dist';
 
 export default {
-    extends: MSubscriber,
+    mixins: [MSubscriber],
     data() {
         return {
             instance: {

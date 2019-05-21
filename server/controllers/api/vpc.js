@@ -15,11 +15,11 @@ module.exports = {
         response(ctx, await vpcService.getVpcs());
     },
     async getSubnets(ctx) {
-        const id = ctx.query.id;
-        response(ctx, await vpcService.getSubnets(id));
+        const VpcId = ctx.query.VpcId;
+        response(ctx, await vpcService.getSubnets(VpcId));
     },
     async getSecurityGroups(ctx) {
-        const id = ctx.query.id;
-        response(ctx, await vpcService.getSecurityGroups(id));
+        const VpcId = ctx.query.VpcId;
+        response(ctx, await vpcService.getSecurityGroups(VpcId));
     },
 };

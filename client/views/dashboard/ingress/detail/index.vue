@@ -43,7 +43,7 @@ export default {
     methods: {
         getDetail() {
             ingressService.getDetail({
-                uuid: this.$route.query.id,
+                InstanceId: this.$route.query.id,
             }).then((info) => this.instance = info.data);
         },
     },
