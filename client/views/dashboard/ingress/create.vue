@@ -8,7 +8,9 @@
             </u-radios>
         </u-form-item>
         <u-form-item label="可用区">
-            <u-capsules :data="azList" v-model="model.AzName"></u-capsules>
+            <u-capsules v-model="model.AzName">
+                <u-capsule v-for="azItem in azList" :key="azItem.value" :value="azItem.value">{{ azItem.text }}</u-capsule>
+            </u-capsules>
         </u-form-item>
         <u-form-item label="网络" required layout="block">
             <u-form-table>
@@ -39,7 +41,9 @@
             </u-form-table>
         </u-form-item>
         <u-form-item label="实例类型">
-            <u-capsules :data="types" v-model="model.Network"></u-capsules>
+            <u-capsules v-model="model.Network">
+                <u-capsule v-for="network in networks" :key="network.value" :value="network.value">{{ network.text }}</u-capsule>
+            </u-capsules>
         </u-form-item>
         <u-form-item label="名称" required :rules="rules.Name">
             <u-input v-model="model.Name" size="huge" maxlength="24" placeholder="1-24位小写字母、数字或中划线组成，以字母开头，字母或数字结尾"></u-input>
@@ -75,7 +79,7 @@ export default {
                 SubnetId: '',
             },
             azList: [{ text: '可用区 A', value: 'a' }, { text: '可用区 B', value: 'b' }],
-            types: [{ text: '公网', value: 'public' }, { text: '私有网', value: 'private' }],
+            networks: [{ text: '公网', value: 'public' }, { text: '私有网', value: 'private' }],
             vpcs: [],
             subnets: [],
             classic: false,

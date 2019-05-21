@@ -68,7 +68,6 @@ export default {
                 StatusInfo: {},
             },
             azList: [{ text: '可用区 A', value: 'a' }, { text: '可用区 B', value: 'b' }],
-
             networks: [{ text: '公网', value: 'public' }, { text: '私有网', value: 'private' }],
             vpcs: [],
             subnets: [],
