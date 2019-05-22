@@ -3,10 +3,7 @@ module.exports = [
     { path: '/api', directory: 'api', children: [
         { path: 'user', controller: 'user', children: [
             '=> #getList',
-            // '=> :id => #'
-        ] },
-        { path: 'user', method: 'post', controller: 'user', children: [
-            '=> #getList',
+            { path: 'check', method: 'get', action: 'checkUser' },
             // '=> :id => #'
         ] },
         { path: 'ncv', controller: 'ncv', children: [

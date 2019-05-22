@@ -31,18 +31,15 @@ module.exports = (options) => {
     app.name = config.name;
     app.keys = config.keys;
     app.proxy = true;
-
-    // // 请求日志记录
-    // app.use(requestLogger());
     // 请求正文解析
     app.use(body({
         multipart: true,
         keepExtensions: true,
         strict: false,
     }));
-    // 加载自定义中间件 在文件akos.config.js中,配置middlewares
+    // 插件: 加载自定义中间件 在文件akos.config.js中,配置middlewares
     loadMw(app, options);
-
+    // 插件: 请求返回改造
     handleCustomCode(app);
     // 视图引擎
     log.info('加载ejs模板,路径=>' + path.resolve(__dirname, '../client/pages'));

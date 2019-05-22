@@ -15,8 +15,9 @@ module.exports = {
             '@s-plugin': resolve('./server/plugin'),
             '@s-services': resolve('./server/services'),
             '@s-shared': resolve('./shared'),
-            '@s-model': resolve('./server/model'),
+            '@s-models': resolve('./server/models'),
             '@s-controller': resolve('./server/controller'),
+            '@s-config': resolve('./config'),
         },
     },
 };

@@ -1,5 +1,6 @@
 const ResponseCode = require('@s-shared/ResponseCode');
 const userService = require('@s-services/user');
+const userDb = require('@s-services/user.db');
 
 module.exports = {
     async getList(ctx) {
@@ -14,10 +15,17 @@ module.exports = {
             searchField: query.searchField,
             searchKeyword: query.searchKeyword,
         });
-
-        ctx.body = {
-            result,
-            code: ResponseCode.success,
-        };
+        ctx.setBodyContent('Success', result);
+    },
+    // 获取单用户
+    async checkUser(ctx) {
+        const { name, password } = ctx.request.query;
+        if (!name || !password)
+            return ctx.setBodyContent('403', '请输入用户名和密码');
+        // 操作数据库
+        const user = await userDb.getUser({ name, password });
+        if (!user)
+            return ctx.setBodyContent('NotFound', '用户名或密码错误');
+        ctx.setBodyContent('Success', '用户验证成功');
     },
 };
