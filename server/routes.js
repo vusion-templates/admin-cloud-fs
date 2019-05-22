@@ -5,6 +5,10 @@ module.exports = [
             '=> #getList',
             // '=> :id => #'
         ] },
+        { path: 'user', method: 'post', controller: 'user', children: [
+            '=> #getList',
+            // '=> :id => #'
+        ] },
         { path: 'ncv', controller: 'ncv', children: [
             '=> #getVolumes',
             // 'get :id => #getOne',

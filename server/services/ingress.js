@@ -3,7 +3,7 @@
 const path = require('path');
 const faker = require('faker');
 const randomNum = faker.random.number;
-const filename = path.resolve(__dirname, '../models/ingress/ingress.model.json');
+const filename = path.resolve(__dirname, '../models/mock/ingress/ingress.model.json');
 let ingressList = require(filename);
 const { writeJSONFile } = require('../utils/fs');
 

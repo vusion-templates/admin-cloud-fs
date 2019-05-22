@@ -1,11 +1,11 @@
-const ResponseCode = require('~/shared/ResponseCode');
-const userService = require('@/services/user');
+const ResponseCode = require('@s-shared/ResponseCode');
+const userService = require('@s-services/user');
 
 module.exports = {
     async getList(ctx) {
         // Validate ctx.query
 
-        const query = ctx.query;
+        const query = ctx.request.fields;
         const result = await userService.getList({
             limit: query.limit === undefined ? query.limit : +query.limit,
             offset: query.offset === undefined ? query.offset : +query.offset,

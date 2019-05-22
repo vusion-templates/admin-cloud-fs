@@ -1,6 +1,6 @@
 'use strict';
 
-const overviewService = require('../../services/overview.js');
+const overviewService = require('@s-services/overview.js');
 const response = (ctx, data) => {
     ctx.response.type = 'application/json';
     ctx.response.body = {

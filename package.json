@@ -15,17 +15,16 @@
     "lint": "eslint --fix ./client/**/*.{js,vue} ./server/**/*.js",
     "precommit": "node node_modules/vusion-hooks/precommit"
   },
-  "_moduleAliases": {
-    "@": "./server",
-    "~": "./"
-  },
   "dependencies": {
     "@vusion/vue-navigation": "^1.1.5",
     "akos-router": "^0.1.2",
     "babel-polyfill": "^6.26.0",
     "cloud-ui.vusion": "^0.4.2",
+    "config": "^3.1.0",
+    "dotenv": "^8.0.0",
     "faker": "^4.1.0",
     "fs-extra": "^7.0.1",
+    "is-type-of": "^1.2.1",
     "koa": "^2.7.0",
     "koa-better-body": "^3.0.4",
     "koa-router": "^7.4.0",
@@ -53,5 +52,16 @@
     "source-map-loader": "^0.2.4",
     "vusion-cli": "^0.8.6",
     "vusion-hooks": "^0.2.1"
+  },
+  "_moduleAliases": {
+    "@": "./server",
+    "~": "./",
+    "@s-utils": "./server/utils",
+    "@s-middlewares": "./server/middlewares",
+    "@s-plugin": "./server/plugin",
+    "@s-services": "./server/services",
+    "@s-shared": "./shared",
+    "@s-model": "./server/model",
+    "@s-controller": "./server/controller"
   }
 }

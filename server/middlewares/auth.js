@@ -7,7 +7,7 @@
 
 const ptr = require('path-to-regexp');
 const config = require('../config');
-const logger = require('../utils/logger');
+const logger = require('@s-utils/logger');
 
 const log = logger.createLogger('app:auth');
 const excludePaths = {};
