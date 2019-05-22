@@ -20,13 +20,13 @@ module.exports = {
     },
     // 获取单用户
     /**
-     * 验证用户信息
+     * 举例: 验证用户信息
      * @method GET
      * @param {String} name
      * @param {String} password
      */
     async checkUser(ctx) {
-        // ctx.request.query 获取get方法路径请求参数
+        // 注: ctx.request.query 获取get方法路径请求参数
         const { name, password } = ctx.request.query;
         if (!name || !password)
             return ctx.setBodyContent('403', '请输入用户名和密码');
@@ -42,13 +42,13 @@ module.exports = {
         ctx.setBodyContent('Success', '用户验证成功');
     },
     /**
-     * 注册新用户单用户
+     * 举例: 注册新用户单用户
      * @method POST
      * @body {String} name
      * @body {String} password
      */
     async registerUser(ctx) {
-        // ctx.request.fields 获取post方法form-data中数据
+        // 注: ctx.request.fields 获取post方法form-data中数据
         const { name, password } = ctx.request.fields;
         if (!name || !password)
             return ctx.setBodyContent('403', '请输入用户名和密码');
@@ -68,7 +68,7 @@ module.exports = {
         ctx.setBodyContent('Success', `${name}用户注册成功`);
     },
     /**
-     * 删除用户
+     * 作业三: 实现删除用户规则
      * @method DELETE
      * 自定义
      */
@@ -76,11 +76,11 @@ module.exports = {
         // 根据用户名删除用户
     },
     /**
-     * 更新用户密码
+     * 作业四: 实现用户更新密码
      * @method PUT
      * 自定义
      */
     async updateUser(ctx) {
-        // 根据用户名删除用户
+        // 根据用户名id更新用户密码
     },
 };
