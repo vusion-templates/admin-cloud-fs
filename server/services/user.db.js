@@ -1,5 +1,5 @@
-const bookshelf = require('@s-models/mysql/db').db;
-const User = require('@s-models/mysql/index').user;
+const bookshelf = require('@/models/mysql/db').db;
+const User = require('@/models/mysql/index').user;
 
 const userDb = {
     // 创建或更新报表单位记录
@@ -18,6 +18,10 @@ const userDb = {
                 }
             })
             .then((info) => info && info.toJSON());
+    },
+    // 保存用户
+    saveUser(model) {
+        return new User().save(model).then((info) => info && info.toJSON());
     },
 
     // 批量保存数据
@@ -58,6 +62,22 @@ const userDb = {
             console.error(error);
             throw error;
         });
+    },
+    /*
+    * 更新用户信息
+    * 举例：
+    *  比如 执行 UPDATE authors SET "bio" = 'Short user bio' WHERE "id" = 1
+    *  写法如下()
+    *  model模型中必须含有主键，或者增加where语句。更多可查看https://bookshelfjs.org/api.html#Model-instance-save
+      new Author({id: 1})
+     .save({bio: 'Short user bio'}, {patch: true})
+     .then(function(model) {
+     // ...
+     });
+    * */
+    updateUser(model) {
+        // 请补充: return new User()......
+
     },
 };
 module.exports = userDb;

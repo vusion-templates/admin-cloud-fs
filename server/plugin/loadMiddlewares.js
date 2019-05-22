@@ -1,5 +1,5 @@
 const path = require('path');
-const logger = require('@s-utils/logger');
+const logger = require('@/utils/logger');
 const log = logger.createLogger('plugin');
 
 function loadMiddlewares(app, options) {
@@ -7,7 +7,7 @@ function loadMiddlewares(app, options) {
         log.info(`Loading user middleware from "${middleware}"`);
         let mw = null;
         try {
-            mw = require(`@s-middlewares/${middleware}`); // require实例化
+            mw = require(`@/middlewares/${middleware}`); // require实例化
         } catch (e) {
             log.error(e);
         }

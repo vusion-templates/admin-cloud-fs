@@ -10,14 +10,6 @@ module.exports = {
         alias: {
             '@': resolve('./server'),
             '~': resolve('./'),
-            '@s-utils': resolve('./server/utils'),
-            '@s-middlewares': resolve('./server/middlewares'),
-            '@s-plugin': resolve('./server/plugin'),
-            '@s-services': resolve('./server/services'),
-            '@s-shared': resolve('./shared'),
-            '@s-models': resolve('./server/models'),
-            '@s-controller': resolve('./server/controller'),
-            '@s-config': resolve('./config'),
         },
     },
 };

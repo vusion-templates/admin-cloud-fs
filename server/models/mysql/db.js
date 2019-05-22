@@ -3,8 +3,8 @@
  */
 'use strict';
 
-const config = require('@s-config');
-const logger = require('@s-utils/logger');
+const config = require('~/config');
+const logger = require('@/utils/logger');
 
 const log = logger.createLogger('app:db');
 const dbConfig = config.db;

@@ -8,5 +8,5 @@ module.exports = {
     entry: './server/app',
     routesPath: './server/routes.js',
     controllersPath: './server/controllers',
-    middlewares: ['requestLogger'],
+    middlewares: ['requestLogger', 'auth'],
 };

@@ -1,6 +1,6 @@
 'use strict';
 
-const ingressService = require('@s-services/ingress.js');
+const ingressService = require('@/services/ingress.js');
 const response = (ctx, data) => {
     ctx.response.type = 'application/json';
     ctx.response.body = {

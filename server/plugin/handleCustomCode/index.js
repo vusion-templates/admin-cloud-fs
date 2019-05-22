@@ -1,7 +1,7 @@
 const assert = require('assert');
 const is = require('is-type-of');
 const debug = require('debug')('akos:server:plugin:handleCustomCode');
-const { ResponseCode } = require('@s-shared/enum.js');
+const { ResponseCode } = require('~/shared/enum.js');
 
 module.exports = function (app) {
     assert.ok(app);
@@ -93,6 +93,14 @@ module.exports = function (app) {
             };
         else if (code === 406 || code === 401) {
             this.status = code;
+            this.body = {
+                code,
+                msg: content,
+            };
+        } else if (code >= 500) {
+            this.status = code;
+            if (is.object(content))
+                content = content.message || 'system internal error';
             this.body = {
                 code,
                 msg: content,

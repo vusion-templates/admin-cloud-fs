@@ -9,9 +9,7 @@ module.exports = {
     },
     auth: {
         exclude: [
-            '/',
-            '/favicon.ico',
-            '/login',
+            '/admin/(.*)',
         ],
     },
     excludePath: [

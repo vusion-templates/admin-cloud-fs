@@ -10,11 +10,11 @@ const path = require('path');
 const Koa = require('koa');
 const AkosRouter = require('akos-router');
 
-const logger = require('@s-utils/logger');
-const loadMw = require('@s-plugin/loadMiddlewares');
+const loadMw = require('@/plugin/loadMiddlewares');
 const views = require('koa-views');
-const handleCustomCode = require('@s-plugin/handleCustomCode');
+const handleCustomCode = require('@/plugin/handleCustomCode');
 const config = require('config');
+const logger = require('@/utils/logger');
 const log = logger.createLogger('app');
 
 // middlewares

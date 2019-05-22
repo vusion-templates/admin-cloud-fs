@@ -58,14 +58,6 @@
   },
   "_moduleAliases": {
     "@": "./server",
-    "~": "./",
-    "@s-config": "./config",
-    "@s-utils": "./server/utils",
-    "@s-middlewares": "./server/middlewares",
-    "@s-plugin": "./server/plugin",
-    "@s-services": "./server/services",
-    "@s-shared": "./shared",
-    "@s-models": "./server/models",
-    "@s-controller": "./server/controller"
+    "~": "./"
   }
 }

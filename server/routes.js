@@ -4,7 +4,8 @@ module.exports = [
         { path: 'user', controller: 'user', children: [
             '=> #getList',
             { path: 'check', method: 'get', action: 'checkUser' },
-            // '=> :id => #'
+            { path: 'register', method: 'post', action: 'registerUser' },
+        // 补充作业中的路径
         ] },
         { path: 'ncv', controller: 'ncv', children: [
             '=> #getVolumes',

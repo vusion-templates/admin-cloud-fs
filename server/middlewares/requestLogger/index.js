@@ -8,7 +8,7 @@
 const _ = require('lodash');
 const chalk = require('chalk');
 const moment = require('moment');
-const logger = require('@s-utils/logger');
+const logger = require('@/utils/logger');
 
 const log = logger.createLogger('app:request');
 const MAX_INSPECT_BODY_LENGTH = 500;
