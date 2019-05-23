@@ -7,7 +7,7 @@ module.exports = {
     async getList(ctx) {
         // Validate ctx.query
 
-        const query = ctx.request.fields;
+        const query = ctx.request.query;
         const result = await userService.getList({
             limit: query.limit === undefined ? query.limit : +query.limit,
             offset: query.offset === undefined ? query.offset : +query.offset,
