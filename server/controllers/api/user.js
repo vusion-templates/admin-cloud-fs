@@ -68,7 +68,7 @@ module.exports = {
         ctx.setBodyContent('Success', `${name}用户注册成功`);
     },
     /**
-     * 作业三: 实现删除用户规则
+     * 作业三: 实现删除用户功能
      * @method DELETE
      * 自定义
      */

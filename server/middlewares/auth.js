@@ -16,7 +16,7 @@ const isExcludePath = (path) => excludePathRegs.some((re) => re.test(path));
 /* 作业1:实现对所有GET方法，路径传参name=admin的请求拦截
  *      ctx.request.query 获取请求路径请求参数对象
  *      ctx.method 获取请求的方法
- * 作业2:路径所有请求code为200的请求返回附加 tag:'附加标记'
+ * 作业2:所有请求返回code为200，则附加在返回中附加tag:'附加标记'
  *      请求返回的统一处理,考虑KOA中间件洋葱圈的原理，同时了解KOA中ctx.body的使用
 */
 module.exports = (options) => async function auth(ctx, next) {
