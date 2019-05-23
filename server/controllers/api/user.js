@@ -1,11 +1,13 @@
-const ResponseCode = require('~/shared/ResponseCode');
 const userService = require('@/services/user');
+const userDb = require('@/services/user.db');
+const logger = require('@/utils/logger');
+const log = logger.createLogger('app:controller:api:user');
 
 module.exports = {
     async getList(ctx) {
         // Validate ctx.query
 
-        const query = ctx.query;
+        const query = ctx.request.query;
         const result = await userService.getList({
             limit: query.limit === undefined ? query.limit : +query.limit,
             offset: query.offset === undefined ? query.offset : +query.offset,
@@ -14,10 +16,71 @@ module.exports = {
             searchField: query.searchField,
             searchKeyword: query.searchKeyword,
         });
-
-        ctx.body = {
-            result,
-            code: ResponseCode.success,
-        };
+        ctx.setBodyContent('Success', result);
+    },
+    // 获取单用户
+    /**
+     * 举例: 验证用户信息
+     * @method GET
+     * @param {String} name
+     * @param {String} password
+     */
+    async checkUser(ctx) {
+        // 注: ctx.request.query 获取get方法路径请求参数
+        const { name, password } = ctx.request.query;
+        if (!name || !password)
+            return ctx.setBodyContent('403', '请输入用户名和密码');
+        // 操作数据库
+        try {
+            const user = await userDb.getUser({ name, password });
+            if (!user)
+                return ctx.setBodyContent('NotFound', '用户名或密码错误');
+        } catch (error) {
+            log.error(error);
+            return ctx.setBodyContent('InternalError', error);
+        }
+        ctx.setBodyContent('Success', '用户验证成功');
+    },
+    /**
+     * 举例: 注册新用户单用户
+     * @method POST
+     * @body {String} name
+     * @body {String} password
+     */
+    async registerUser(ctx) {
+        // 注: ctx.request.fields 获取post方法form-data中数据
+        const { name, password } = ctx.request.fields;
+        if (!name || !password)
+            return ctx.setBodyContent('403', '请输入用户名和密码');
+        // 操作数据库
+        let user = {};
+        // 查询用户名是否存在
+        user = await userDb.getUser({ name });
+        if (user)
+            return ctx.setBodyContent('Invalid', '用户名已被注册');
+        try {
+            // 保存用户
+            user = await userDb.saveUser({ name, password });
+        } catch (error) {
+            log.error(error);
+            return ctx.setBodyContent('InternalError', error);
+        }
+        ctx.setBodyContent('Success', `${name}用户注册成功`);
+    },
+    /**
+     * 作业三: 实现删除用户功能
+     * @method DELETE
+     * 自定义
+     */
+    async delUser(ctx) {
+        // 根据用户名删除用户
+    },
+    /**
+     * 作业四: 实现用户更新密码
+     * @method PUT
+     * 自定义
+     */
+    async updateUser(ctx) {
+        // 根据用户名id更新用户密码
     },
 };

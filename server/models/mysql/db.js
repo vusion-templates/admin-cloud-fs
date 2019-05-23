@@ -1,15 +1,14 @@
 /**
  * 数据库连接
  */
-
 'use strict';
 
-const config = require('../config');
-const logger = require('../utils/logger');
+const config = require('~/config');
+const logger = require('@/utils/logger');
 
 const log = logger.createLogger('app:db');
 const dbConfig = config.db;
-
+// 数据库白名单，已开部分办公区IP
 const knex = require('knex')({
     client: 'mysql2',
     connection: {
@@ -27,8 +26,8 @@ const knex = require('knex')({
 });
 
 log.info(`connect to ${dbConfig.host}#${dbConfig.database}`);
-const bookshelf = require('bookshelf')(knex);
-bookshelf.plugin('pagination');
+const db = require('bookshelf')(knex);
+db.plugin('pagination');
 
-module.exports = bookshelf;
+module.exports = { db };
 

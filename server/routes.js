@@ -3,7 +3,9 @@ module.exports = [
     { path: '/api', directory: 'api', children: [
         { path: 'user', controller: 'user', children: [
             '=> #getList',
-            // '=> :id => #'
+            { path: 'check', method: 'get', action: 'checkUser' },
+            { path: 'register', method: 'post', action: 'registerUser' },
+        // 补充作业中的路径
         ] },
         { path: 'ncv', controller: 'ncv', children: [
             '=> #getVolumes',

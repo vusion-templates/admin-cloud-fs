@@ -8,7 +8,7 @@ const {
     visitData,
     failInfoData,
     staticData,
-} = require('../models/overview.js');
+} = require('../models/mock/overview.js');
 
 module.exports = {
     getSource() {

@@ -2,7 +2,7 @@
 
 const faker = require('faker');
 const randomNum = faker.random.number;
-const vpcs = require('../models/vpc.js');
+const vpcs = require('../models/mock/vpc.js');
 
 module.exports = {
     getVpcs() {
