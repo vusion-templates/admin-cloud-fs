@@ -1,36 +1,39 @@
 const path = require('path');
 const webpack = require('webpack');
 
-module.exports = {
-    entry: {
-        vendor: ['babel-polyfill', 'whatwg-fetch', 'vue', 'vue-router'],
-    },
-    output: {
-        filename: '[name].js',
-        path: path.resolve(__dirname, './dll'),
-        publicPath: '/public/',
-        library: '[name]',
-    },
-    resolve: {
-        alias: {
-            vue$: path.resolve(__dirname, 'node_modules/vue/dist/vue.esm.js'),
-            'vue-router$': path.resolve(__dirname, 'node_modules/vue-router/dist/vue-router.esm.js'),
+module.exports = (env = {}) => {
+    const name = env.NODE_ENV === 'production' ? '[name]' : '[name].dev';
+    return {
+        entry: {
+            vendor: ['babel-polyfill', 'whatwg-fetch', 'vue', 'vue-router'],
         },
-    },
-    plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: '"production"',
+        output: {
+            filename: `${name}.js`,
+            path: path.resolve(__dirname, './dll'),
+            publicPath: '/public/',
+            library: '[name]',
+        },
+        resolve: {
+            alias: {
+                vue$: path.resolve(__dirname, 'node_modules/vue/dist/vue.esm.js'),
+                'vue-router$': path.resolve(__dirname, 'node_modules/vue-router/dist/vue-router.esm.js'),
             },
-        }),
-        new webpack.DllPlugin({
-            path: path.join(__dirname, './dll', '[name].manifest.json'),
-            name: '[name]',
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false,
-            },
-        }),
-    ],
+        },
+        plugins: [
+            new webpack.DefinePlugin({
+                'process.env': {
+                    NODE_ENV: `"${env.NODE_ENV}"`,
+                },
+            }),
+            new webpack.DllPlugin({
+                path: path.join(__dirname, './dll', `${name}.manifest.json`),
+                name: '[name]',
+            }),
+            new webpack.optimize.UglifyJsPlugin({
+                compress: {
+                    warnings: false,
+                },
+            }),
+        ],
+    };
 };

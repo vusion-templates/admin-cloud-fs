@@ -2,6 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
+const manifest = process.env.NODE_ENV === 'production' ? require('./dll/vendor.manifest.json') : require('./dll/vendor.dev.manifest.json');
+const vendorPath = process.env.NODE_ENV === 'production' ? path.resolve(__dirname, 'dll/vendor.js') : path.resolve(__dirname, 'dll/vendor.dev.js');
 module.exports = {
     version: '>=0.8.1',
     type: 'app',
@@ -39,11 +41,11 @@ module.exports = {
         plugins: [
             // 关联生成的 dll 信息文件
             new webpack.DllReferencePlugin({
-                manifest: require('./dll/vendor.manifest.json'),
+                manifest,
             }),
             // 将 vendor.js 带上 hash 并注入到 html 中
             new AddAssetHtmlPlugin({
-                filepath: path.resolve(__dirname, 'dll/vendor.js'),
+                filepath: vendorPath,
                 hash: true,
                 includeSourcemap: false,
             }),
