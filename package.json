@@ -11,9 +11,7 @@
     "server-dev": "akos-dev",
     "server-build": "npm run build && npm run start",
     "server-test": "mocha server/tests/unit/**/test-*.js",
-    "productDll": "./node_modules/.bin/webpack --config webpack.dll.config.js --env.NODE_ENV production",
-    "devDll": "./node_modules/.bin/webpack --config webpack.dll.config.js --env.NODE_ENV deployment",
-    "dll": "npm run productDll && npm run devDll",
+    "dll": "npx webpack --config webpack.dll.config.js --env.NODE_ENV production && npx webpack --config webpack.dll.config.js --env.NODE_ENV development",
     "lint": "eslint --fix ./client/**/*.{js,vue} ./server/**/*.js",
     "precommit": "node node_modules/vusion-hooks/precommit"
   },

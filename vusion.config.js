@@ -4,6 +4,7 @@ const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
 const manifest = process.env.NODE_ENV === 'production' ? require('./dll/vendor.manifest.json') : require('./dll/vendor.dev.manifest.json');
 const vendorPath = process.env.NODE_ENV === 'production' ? path.resolve(__dirname, 'dll/vendor.js') : path.resolve(__dirname, 'dll/vendor.dev.js');
+
 module.exports = {
     version: '>=0.8.1',
     type: 'app',
