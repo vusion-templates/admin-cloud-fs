@@ -26,7 +26,7 @@
     "faker": "^4.1.0",
     "fs-extra": "^7.0.1",
     "is-type-of": "^1.2.1",
-    "knex": "^0.16.5",
+    "knex": "^0.20.1",
     "koa": "^2.7.0",
     "koa-better-body": "^3.0.4",
     "koa-router": "^7.4.0",
